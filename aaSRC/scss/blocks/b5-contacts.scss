@@ -1,0 +1,41 @@
+.contacts{
+  height: 600rem ;
+  padding-top: 60rem;
+  font-weight: 700;
+
+  background: rgb(159,162,162);
+  background: linear-gradient(180deg, rgba(231,231,231,1) 10% , rgba(58, 88, 114) 130%);
+
+  &__area{
+    display: grid;
+    grid-template-columns:repeat(2, 1fr) ; 
+  }
+
+  &-box{} //background-color: lightblue;
+ 
+  &__subtitle{font-size: 20rem; margin: 20rem 0 20rem 19rem; color: $c-dark;}
+
+  &__elem{
+    display: grid;
+    grid-template-columns: 40rem auto;
+    align-items: center;
+   
+    span{ color: #000; margin-left: 10px; font-size: 16rem ; }
+    &--vk{
+      padding: 10rem 0;
+      &:hover{color: rgb(85, 85, 172);;}
+    }
+  }
+
+  &__ico{
+    height: 40rem;
+    &:hover{
+      opacity: 0.4;
+      background-color:rgba(240, 255, 255, 0.248);
+    }
+    &--b{
+      height: 40rem;
+    }
+  }
+
+} 

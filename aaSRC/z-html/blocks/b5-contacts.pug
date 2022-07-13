@@ -1,0 +1,56 @@
+mixin form-mess
+    form.form-mess#formMess(action="#")
+      //  method="post" 
+      input.form-mess__input._req#formName(type="text", placeholder="Введите ваше имя *", name="name")
+      input.form-mess__input._req._email#formEmail(type="text", placeholder="Введите адрес вашей почты *", name="email")
+      textarea.form-mess__textarea._req#formMessage(type="text", placeholder="Введите сообщение*", name="message")
+      .accept-politics
+        input.form-mess__input.chek-accept._req#acceptPoliticsID(type="checkbox", name="acceptPolitics")
+        label.chek-accept__label(for="acceptPoliticsID")
+          | Я согласен(а) с 
+          a(href="politics.html") политикой конфиденциальности
+      input#recaptchaResponse(type="hidden", name="recaptcha_response")
+      button.form-mess__input.form-mess-btn.g-recaptcha#formBtn(type="submit") отправить сообщение
+
+
+//-START
+section.contacts#contact
+  .conteiner
+    //-  <h2  class="price-tittle"> Контакты</h2> 
+    .contacts__area
+      .contacts-box 
+        h3.contacts__subtitle основные контакты:
+        .contacts__elem
+          a(href="mailto:werwolion@mail.ru")
+            img.contacts__ico(src="img/svgicons/mail_icon.svg", alt="mail.ru")
+          span Почта Mail.ru - werwolion@mail.ru
+        .contacts__elem
+          a(href="mailto:werwolion@gmail.com")
+            img.contacts__ico(src="img/svgicons/gmail_icon.svg", alt="gmail")
+          span Google почта - werwolion@gmail.com
+        .contacts__elem
+          a(href="https://vk.com/werwolion")
+            img.contacts__ico(src="img/svgicons/vk_icon.svg", alt="vk")
+          a(href="https://vk.com/werwolion")
+            span.contacts__elem--vk Социальная сеть "Вконтакте"
+        .contacts__elem
+          a(href="https://msng.link/o/?Werwolion=tg")
+            img.contacts__ico(src="img/svgicons/logo_telegram.svg", alt="vk")
+          span Мессенджер Telegram id: Werwolion
+
+        h3.contacts__subtitle дополнительные контакты:
+        .contacts__elem
+          a(href="https://msng.link/o/?live:werwolion=sk")
+            img.contacts__ico(src="img/svgicons/skype_ico.svg", alt)
+          span Скайп id: werwolion 
+        .contacts__elem
+          a(href="https://viber.click/7375336876346")
+            img.contacts__ico(src="img/svgicons/viber.svg", alt)
+          span Мессенджер Viber id: +375336876346
+        .contacts__elem
+          img.contacts__ico--b(src="img/svgicons/discord_fill_icon.svg", alt)
+          span Мессенджер Discord - id: WERWOLION#7185 
+
+      //-4 вложенность  
+      +form-mess
+

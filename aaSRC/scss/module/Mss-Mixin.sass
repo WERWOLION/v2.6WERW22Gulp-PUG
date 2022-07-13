@@ -1,0 +1,302 @@
+//SEL - moduls SASS mixins                                  
+
+//w Base
+@mixin Relative($t:n,$l:n,$z:n, $b:n,$r:n)
+  position: relative
+  @if $t != n 
+     top: $t
+  @if $l != n
+    left:$l 
+  @if $r  != n 
+     right: $r
+  @if $b != n 
+     bottom: $b
+  @if $z != n 
+    z-index: $z
+// 	@include Relative($top,$left,$bottom,$right,$z-index);
+  
+  
+= input
+  .input
+    box-shadow: 0 10rem 20rem rgba(0, 0, 0, 0.05)
+    transition: opacity 0.3s
+    &:focus
+      border-color: #2FAB73
+      & ~ .input__label span 
+        transition: opacity 0.3s
+        opacity: 0
+  .input__label
+    +Abs(14rem,18rem, -1) // (t,l,z-index,b,r)
+    display: flex
+    img
+      margin-right: 8rem
+  .input__btn
+    +FsbA
+    +size(121rem,45rem,n,#2FAB73)  //(w ,h,radius ,color,c) 
+    border-radius: 0 22rem 22rem 0 
+    padding: 0 12rem
+    img 
+      +size(12rem)
+    span  
+      +Font(14rem, 21rem, 500 , #FFFFFF)  //(size,h,w,col,name )  
+
+= border-line()
+    position: relative
+    &::before
+      content: ""
+      +Abs(n,0,n,0,13rem) // (t,l,z-index,b,r)
+      background: #E0E8F2
+      height: 1rem 
+
+= background-glass($opacity,$z, $url:n ,$c:n)
+  // position: relative;
+  backdrop-filter: blur(21rem)   
+  box-shadow: 0rem 4rem 24rem -1rem rgba(255, 255, 255, 1)
+  &:before
+      +Abs(0,0,$z,0,0) // (t,l,z-index,b,r)
+      content: ""
+      opacity: $opacity 
+      @if $url != n
+        background:$url
+      @if $c != n 
+         background: $c
+      @-moz-document url-prefix()
+        filter: url(#svgBlur)
+  &:after // box-shadow
+      content: ""
+      +Abs(0,0,-1,0,0) // (t,l,z-index,b,r)
+      box-shadow: (0rem 4rem 4rem rgba(0, 0, 0, 0.25))
+      border-radius: 15rem 
+//-- END    ===---- 
+
+//e MASK=-
+@mixin Test-mss_Mask-SVG($url)
+  // @supports(-webkit-mask-image: url(#mask)) or (mask-image: url(#mask)) 
+  /* code that requires mask-image here. */
+  // -webkit-mask-image: url($url)
+  -webkit-mask-image: $url
+  -webkit-mask-repeat: no-repeat
+  -webkit-mask-size: cover
+  mask-size: cover
+  // mask-size: 400rem - изменение
+//  +Test_Mask-SVG(url(../img/SVG-MASK.svg))
+= Test_decor-line  
+  display: flex 
+  &::before // декор линия
+    content:'' 
+    flex: 0 0 70rem //-flex-grow, flex-shrink и flex-basis. 
+    margin:  0 30rem 0 0
+    background-color: #a8ff06 
+    height: 2rem
+
+
+= Test-mss_Mask-b($size:n)
+  position: relative
+  &::before
+    +Abs(0,0,2,0,0) // (t,l,z-index,b,r)
+    content:'' 
+    background: url(../img/SVG-MASK-wite.svg)  
+    // +size(600rem)  //(w ,h,radius ,color,c) 
+    background-repeat: no-repeat
+    mix-blend-mode: screen
+    overflow: hidden
+
+= Test_img-aspect-ratio
+  aspect-ratio: 16/9
+  max-width:90%
+  object-fit: cover
+
+= Test_gradient-fon
+  background-color: rgb(95, 138, 162)
+  position: relative
+  z-index: 2
+  &::before
+    content:''
+    +Abs(0,0) // (t,l,z-index,b,r)
+    +size(100%,300rem)  //(w ,h,radius ,color,c) 
+    background: rgb(140,235,255)
+    background: linear-gradient(180deg, rgba(140,235,255,0) 0%, rgba(111,98,254,0.5) 100%)
+    transform: translate(0,-100%)
+    pointer-events: none
+
+//e Test_background-image
+= Test_background-image
+  +size(100%)  //(w ,h,radius ,color,c) 
+  max-height:$square-height  //800
+  background-image: url(/img/title.jpg)
+  background-repeat: no-repeat 
+  background-position: center center
+  background-size: cover// интуитивная растяжка
+  letter-spacing: $letter-spacing-titule  
+
+
+
+// /*e  SPECIAL      = - = -                    
+= parallax 
+  body
+    height: 100%
+
+  .wrapper 
+    min-height:100%
+  .--container 
+    max-width:1300rem
+    margin: 0 auto
+    padding: 50rem 20rem
+  .parallax
+    min-height:100vh
+    min-height:1000rem
+  .parallax__body 
+    +Fix(0,0) // (t,l,z-index,b,r)
+    +size(100%,100%)  //(w ,h,radius ,color,c) 
+    z-index: -1
+  .content
+    background-color: #edb8b8
+    .content__container
+      background-color: $i
+  .parallax__container
+    text-transform: uppercase
+    +Relative($z:2) // (t,l,z-index,b,r)
+  .parallax__ttl
+    color: #fdfdfd 
+    display: inline-block
+    padding:5rem 20rem
+    background-color: rgba(60, 58, 50, 0.661) 
+  .parallax__label
+    display: flex
+    background-color: rgba(238, 246, 251, 0.803)
+    margin: 20rem 0 0
+    +Font(30rem,n,700,#9e8282c6)  //(size,h,w,col,name )
+    letter-spacing:6rem
+    align-items: center
+    &::before // декор линия
+      content:'' 
+      flex: 0 0 70rem //flex-grow, flex-shrink и flex-basis. 
+      margin:  0 30rem 0 0
+      background-color: #a8ff06 
+      height: 2rem
+  .parallax__img
+    +Abs(-10%,-10%, 1) // (t,l,z-index,b,r)
+    +size(120%)  //(w ,h,radius ,color,c) 
+  .img-parallax__itm
+      +Abs(0,0) // (t,l,z-index,b,r)
+      +size(100%)  //(w ,h,radius ,color,c) 
+  .img-parallax
+    &__a , &__b-fon , &__c-masc 
+      +Abs(n,0) // (t,l,z-index,b,r)
+      +size(100%)
+    &__a 
+      background: url(../img/title.jpg) top / cover no-repeat
+      // background-color: #342121
+      top: 0
+    &__b-fon 
+      background: url(../img/TEST/test1.png) top / cover no-repeat
+      top: 15%
+      z-index: 2
+    &__c-masc
+      background: url(../img/IVN.png) top / cover no-repeat
+      top: 45%
+      z-index: 3
+      width: 410rem
+      height: 50%
+      left: 300rem
+  @media  (max-aspect-ratio: 3/2)  
+    .img-parallax__c-masc 
+      background-position: 20% top
+      left: 20%
+
+
+= Jarallax-Parallax
+    .header
+      height: 100rem
+      color: #fff
+      +FsbA
+      padding: 0 50rem
+      font-weight: 700
+    .logo 
+      +Font(30rem,100%,700rem,#fff)  //(size,h,w,col,name )
+      letter-spacing: 10rem
+      text-decoration: none
+
+    .text
+      z-index: 100rem
+      font-size: 30rem
+      text-transform: uppercase
+      margin-left: 10vw
+      color: #fff
+    .container-jarallax
+      width: 90vw
+      margin: 0 auto
+      display: grid
+      grid-row-gap: 50rem
+      padding: 100rem 0
+
+    .jarallax 
+      position: relative
+      z-index: 3
+
+      //--user
+      display: grid
+      align-items: center
+      +size(100%,100vw)  //(w ,h,radius ,color,c) 
+      max-height: 600rem
+      min-height: 400rem
+      &::after // стекло
+        content:'' 
+        +Abs(0,0) // (t,l,z-index,b,r)
+        +size(100%)  //(w ,h,radius ,color,c) 
+        background-color: rgba(0,0,0,0.1)
+
+    .jarallax > .jarallax-img 
+      position: absolute
+      object-fit: cover
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      z-index: -1
+
+
+@mixin GLASS
+  //W GLASS!!!!!
+  &_wrapper__glass-background
+      position: relative
+      margin: 90rem auto
+      backdrop-filter: blur(21rem)
+      +size(1048rem,693rem,15rem)  //(w ,h,radius ,color,c) 
+      box-shadow: 0rem 4rem 24rem -1rem rgba(255, 255, 255, 1)
+      +background-opacity(0.12, -3, url(../img/Glass-background.png)) //	@include background-opacity($opacity,$z, $url:n ,$c:n) ;  // url(../img/Glass-background.png)
+
+      &::before  // background img glass
+        mix-blend-mode: overlay
+        border-radius: 15rem
+        @-moz-document url-prefix()
+          filter: url(#svgBlur)
+      &:after
+        content: ""
+        +Abs(0,0,11,0,0) // (t,l,z-index,b,r)
+        box-shadow: (0rem 4rem 4rem rgba(0, 0, 0, 0.25))
+        border-radius: 15rem 
+
+      .glass-background--drop-shadow
+        background: linear-gradient(141.51deg, rgba(255, 255, 255, 0) 0.96%, rgba(255, 255, 255, 0.19) 99.4%)
+        +Abs(0,0,-5,0,0) // (t,l,z-index,b,r)
+        filter: drop-shadow(0rem 39.1656rem 55rem rgba(18, 0, 62, 1))
+        border-radius: 15rem
+// @mixin SP_
+
+= M_background-opacity($opacity,$z, $url:n ,$c:n)
+  // position: relative;
+  &:before
+      content: ""
+      +Abs(0,0,$z,0,0)// (t,l,z-index,b,r)
+      opacity: $opacity
+      @if $url != n 
+        background:$url
+      @if $c != n 
+        background: $c
+// M_background-opacity($opacity,$z, $url:n ,$c:n)        
+
+
+
+
+//  - END

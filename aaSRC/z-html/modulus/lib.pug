@@ -1,0 +1,41 @@
+extends base
+block content
+    section.test  
+      .container
+        section.test_b
+
+//примеры
+- var title = "On Dogs: Man's Best Friend";
+- var author = "enlore";
+- var theGreat = "<span>escape!</span>";
+- var  lang = 'en';
+// html(lang= lang) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+mixin exmpl(e)
+      h1= title
+      p Written with love by #{author}
+      p This will be safe: !{theGreat}
+      p.class= e
+      //HTML
+      <h1>On Dogs: Man's Best Friend</h1>
+      <p>Written with love by enlore</p>
+      <p>This will be safe: <span>escape!</span></p>
+
++exmpl(rrrr)
+
+//Pug
+- var classes = ['foo', 'bar', 'baz']
+a(class=classes)
+|
+|
+//- the class attribute may also be repeated to merge arrays
+a.bang(class=classes class=['bing'])
+//HTML
+<a class="foo bar baz"></a>
+<a class="bang foo bar baz bing"></a>
+
+// МАСИВ -------------------------------
+//- - var menuEl = ['главная', 'чото там' , 'el3' , 'el4'];
+//- ul 
+//-   each value in menuEl
+//-     li #{value}

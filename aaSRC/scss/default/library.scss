@@ -1,0 +1,175 @@
+ /*E ▼ ▼ ▼ ▼   ▲ ▲ ▲ ▲ ▲   ↑↑↑  ↓↓↓    	♥ 	♥ 	♥ 	♥   */
+ $shadow-txt:0 0 .65px #000, 0 0 .65px #000;
+ $p-colum:0rem;
+// flex-shrink:0; = flex: 0 0 auto // flex-direction: column;   // сжимание -- Коэффициент сжатия
+// w  flex: 0 0 70rem -flex-grow, flex-shrink и flex-basis. 
+//w   flex-grow коэффициент растяжения
+//w   flex-shrink коэффициент сжатия 
+//w   flex-basis  может иметь значение content  
+//w order:1;  //flex-child↑↑↑ 
+//w flex-wrap: wrap;  // .--js_link // прыгалка // flex: 1 1 auto;.
+//w align-self  - flex child
+// auto =  flex: 1 1 auto; // коэффициент растяжения  // коэффициент сужения // базовая ширина
+// user-select:none;// выделение текста + ::selection {background: #ffb7b7; }
+// &:nth-child(1) {background-color: aqua;} // :nth-last-child
+// @extend .--absolute - НАСЛЕДОВАНИЕ
+// transform: scale(-1, 1) //w зеркало   |  & >.class
+// inherit
+//▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲♠♠♠♠♠♠♠♠♠
+// технические классы
+.--absolute,.--abs{position: absolute;}  
+.--relative{position: relative;}
+.--flex {display: flex;} 
+.--fsb {@include Fsb;}
+.--fsb-w {@include Fsb;flex-wrap: wrap}
+.--fsba {@include FsbA;}// r-l   spacebetween
+.--row {display: flex; flex-wrap:wrap;} // сетка
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+.--center-ai{align-items:center;}
+.--center{@include center;} // flex -xy
+// text-indent: 40rem; // Устанавливает величину отступа первой строки блока текста
+// font: font-style  font-variant font-weight  15rem/26rem  'Metropolis'; //BBB------
+// text-transform: uppercase;  -- Заглавные
+
+// pointer-events: none; // отключить мышку
+// transform: rotate(-4deg);
+// overflow: visible; // - показывать За блоком
+// .--overflow-hidden{overflow: hidden;width: 1000rem; height: 100rem;}
+// backdrop-filter: blur(400px);
+// background: url(../img/title.jpg) top / cover no-repeat
+
+//BBB
+// @-moz-document url-prefix()
+//BBB----- ОШИБКИ
+// fill    - svg   /  div:hover svg 
+// .father { &:hover {chaild  {father css } }}
+// overflow: auto; ==== height:100%; + max-height: ???rem;
+
+// @media  (max-aspect-ratio: 3/2)    // отношение ширины к высоте области просмотра.
+// Широкоэкранный дисплей 16:9 мб помечен как (aspect-ratio: 16/9)
+// aspect-ratio: 4/3
+// @supports (aspect-ratio: 1) {
+//   .class {
+//    bla bla
+//   }
+
+//* todo  СЕТКА                         */
+// @media(max-width: 1700px) { max-width: 1300rem;}
+// @media(max-width: 1500px) {  max-width: 1200rem; }
+// @media(max-width: 1300px) {  max-width: 95%;}
+
+ .--row > div{ padding: $p-colum; margin: 0 auto;}
+
+ .c-12{ width: calc(100% - $p-colum );}
+ .c-11{ width: calc(91.67% - $p-colum );}
+ .c-10{ width: calc(83.33% - $p-colum );}
+ .c-9 { width: calc(75% - $p-colum );}
+ .c-8 { width: calc(66.67% - $p-colum );}
+ .c-7 { width: calc(58.33% - $p-colum );}
+ .c-6 { width: calc(50% - $p-colum );}
+ .c-5 { width: calc(41.67% - $p-colum );}
+ .c-4 { width: calc(33.33% - $p-colum );} // = 4/12
+ .c-3 { width: calc(25% - $p-colum ) ;}
+ .c-2 { width: calc(16.67% - $p-colum );}
+ .c-1 { width: calc(8.33% - $p-colum );}
+ // .c-ld12
+ @media screen and (max-width:992px) {
+    .c-ld12{ width: calc(100% - $p-colum );} // 1 
+    .c-ld11{ width: calc(91.67% - $p-colum );}
+    .c-ld10{ width: calc(83.33% - $p-colum );}
+    .c-ld9 { width: calc(75% - $p-colum );}
+    .c-ld8 { width: calc(66.67% - $p-colum );}
+    .c-ld7 { width: calc(58.33% - $p-colum );}
+    .c-ld6 { width: calc(50% - $p-colum );}  // 2
+    .c-ld5 { width: calc(41.67% - $p-colum );}
+    .c-ld4 { width: calc(33.33% - $p-colum );} // 3
+    .c-ld3 { width: calc(25% - $p-colum ) ;}  // 4
+    .c-ld2{ width: calc(16.67% - $p-colum );}
+    .c-ld1 { width: calc(8.33% - $p-colum );}}
+ // .c-md12   
+ @media screen and (max-width:768px) {
+  .c-md12{ width: calc(100% - $p-colum );} // 1 
+  .c-md11{ width: calc(91.67% - $p-colum );}
+  .c-md10{ width: calc(83.33% - $p-colum );}
+  .c-md9 { width: calc(75% - $p-colum );}
+  .c-md8 { width: calc(66.67% - $p-colum );}
+  .c-md7 { width: calc(58.33% - $p-colum );}
+  .c-md6 { width: calc(50% - $p-colum );}  // 2
+  .c-md5 { width: calc(41.67% - $p-colum );}
+  .c-md4 { width: calc(33.33% - $p-colum );} // 3
+  .c-md3 { width: calc(25% - $p-colum ) ;}  // 4
+  .c-md2{ width: calc(16.67% - $p-colum );}
+  .c-md1 { width: calc(8.33% - $p-colum );}}
+// .col-sm12    
+ @media screen and (max-width:576px) {
+  .c-sm12{ width: calc(100% - $p-colum );} // 1 
+  .c-sm11{ width: calc(91.67% - $p-colum );}
+  .c-sm10{ width: calc(83.33% - $p-colum );}
+  .c-sm9 { width: calc(75% - $p-colum );}
+  .c-sm8 { width: calc(66.67% - $p-colum );}
+  .c-sm7 { width: calc(58.33% - $p-colum );}
+  .c-sm6 { width: calc(50% - $p-colum );}  // 2
+  .c-sm5 { width: calc(41.67% - $p-colum );}
+  .c-sm4 { width: calc(33.33% - $p-colum );} // 3
+  .c-sm3 { width: calc(25% - $p-colum ) ;}  // 4
+  .c-sm2{ width: calc(16.67% - $p-colum );}
+  .c-sm1 { width: calc(8.33% - $p-colum );}}
+
+ /* fix     PUG               ПУТИ   @img/   @scss  @js  */ 
+// - var url = 'pug-test.html';
+// a(href='/' + url) Link
+
+// - var title = "On Dogs: Man's Best Friend"; ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+// - var author = "enlore";
+// - var theGreat = "<span>escape!</span>";
+// h1= title
+// p Written with love by #{author}
+// p This will be safe: !{theGreat}
+//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ HTML-↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+// <h1>On Dogs: Man's Best Friend</h1>
+// <p>Written with love by enlore</p>
+// <p>This will be safe: <span>escape!</span></p>
+
+
+ // fix
+ // Todo
+  /* todo                         */
+  /* fix                           */
+  // HTML
+// ▼ ▼ ▼ ▼   ▼ ▼ ▼ ▼   ▼ ▼ ▼ ▼   ▼ ▼ ▼ ▼   ▼ ▼ ▼ ▼  
+// @@include('z_html/base/head.html', { 'title': 'Wight Loss' })
+// @@include("../SVGhtml/__semoulder--svg.html", {'className':'cover-right__ellipse-red'})
+// svg class=@@className   // @@title - переменная HTML
+
+
+@mixin exemple-SCSS {
+  [class^="btn-"] {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    @include size(100%, $btn-height);
+    max-width: $btn-width;
+    margin: 1rem auto;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+  }
+}
+
+@mixin exemple-supports{
+  @supports (display: grid) {
+    .main { display: grid;}}
+    /* Рассмотрение ПЛОХОЙ ПРАКТИКИ, по крайней мере, если вы поддерживаете IE 11 и iOS 8 или старше */
+    @supports not (display: grid) {
+      /* Изолированный код для браузеров, не поддерживающих grid */}
+    @supports (display: grid) {
+      /* Изолированный код для браузеров, поддерживающих grid */ }
+}
+
+@mixin exemple-triangle{
+  @include size(200rem);
+  background: linear-gradient(45deg, deeppink 50%, transparent 50%);
+  filter: drop-shadow(0rem 39.1656rem 22rem rgba(18, 0, 62, 0.9));
+}
+
+

@@ -1,0 +1,111 @@
+//-   command gulp   + использовать пути   @img   @scss  @js //  npm i -d name
+//-   npm run dev          npm run build    
+//-    npm run zip        npm run svgSprive        npm i     
+- const titleSite = 'Hatsevich Ivan - portfolio';
+- const descriptionSite = 'A Digital Product Design Agency. We are Creative and Professional Digital Agency...';
+- const lang = 'ru';
+- const logoUrl = '@img/Logo.svg';
+- const urlSite = 'https://werwolion.ru/';
+- const urlPage = 'https://werwolion.ru/';
+- const maleSite = 'werwolion@gmail.com';
+- const maleAutourReply = 'werwolion@mail.ru';
+
+//-modules
+include z-html/modulus/svg-lib
+include z-html/modulus/mix
+include z-html/modulus/M-mixin
+//-  ----------------/*W E B/-------------------------------------
+
+
+doctype html
+html(lang= lang)
+ include z-html/base/head
+ body
+  include z-html/base/header   
+  //----- PAGE  ---------------------
+  include z-html/blocks/b1-cover
+  include z-html/blocks/b2-services
+  include z-html/blocks/b3-work-examples
+  include z-html/blocks/b4-price
+  include z-html/blocks/b5-contacts
+  include z-html/blocks/b6-technologies
+  //- ----- END  page  ----
+  include z-html/base/footer 
+  include z-html/modulus/popUPjs
+  +svg_blur
+
+  //- include("z-html/moduls/toTop.html")  
+  script(src='js/app.min.js')
+  //- js-скрипт гугл капчи 
+  //- script(src="https://www.google.com/recaptcha/api.js?render=6Lebj_sdAAAAAFRRZHaylmb2HwfPeRvfM8RM8IcI")
+   
+
+
+
+//W -= class name =- 
+//-.container holder, box 
+//- wrapper, wrap — обёртка, обычно внешняя
+//-inner — внутренняя обёртка
+
+//-ttl  __desc
+//- row — контейнер в виде строки  //col, column —  виде столбца 
+//- grid — раскладка  в виде сетки
+
+//- control — элем упр,пр стрел «Вперёд/назад» управ слайдером
+//- dropdown — выпадающий список
+
+//- title, subject, heading, headline, caption 
+//- subtitle 
+//- slogan — слоган
+//- lead, tagline — лид-абзац в тексте
+//- desc — описание, вариант текстового контента
+
+//- excerpt — отрывок текста, обычно используется перед ссылкой «Читать далее…»
+//- copyright, copy — копирайт
+
+//- list, item 
+
+//-img ,pic //    thumbnail, thumb — миниатюра, уменьшенное изображение
+//- userpic, avatar
+
+
+
+//- search — поиск
+//- socials — блок иконок соцсетей
+//- advertisement, adv, commercial, promo — рекламный блок (режутся Адблоком, не рекомендуется использовать такие классы для блоков с внутренней рекламой)
+//- features, benefits — список основных особенностей товара, услуги
+//- slider, carousel — слайдер, интерактивный элемент с прокруткой содержимого
+//- pagination — постраничная навигация
+//- user, author — пользователь, автор записи или комментария
+//- meta — блок с дополнительной информацией, например, блок тегов и даты в посте
+//- cart, basket — корзина
+//- breadcrumbs — навигационная цепочка, «хлебные крошки»
+//- more, all — ссылка на полную информацию
+//- modal — модальное (диалоговое) окно
+//- popup — всплывающее окно
+//- tooltip, tip — всплывающие подсказки
+//- preview — анонс, отрывок, например новости или поста, может состоять из заголовка, описания и картинки. Предполагается ссылка на полную версию
+
+
+//- phone, mobile
+//- phablet — телефоны с большим экраном (6-7″)
+//- tablet — планшеты
+//- notebook, laptop — ноутбуки
+//- desktop — настольные компьютеры
+
+//- tiny — маленький, крохотный
+//- small — небольшой
+//- medium — средний
+//- big, large — большой
+//- huge — огромный
+//- narrow — узкий
+//- wide — широкий
+
+
+//- active, current — активный элемент, например, текущий пункт меню
+//- hidden — скрытый элемент
+//- error — статус ошибки
+//- warning — статус предупреждения
+//- success — статус успешного выполнения задачи
+//- pending — состояние ожидания, например, перед сменой статуса на error или success
+

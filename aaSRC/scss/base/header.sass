@@ -1,0 +1,85 @@
+$hed-height: 65rem // высота шапки
+
+.header   //.header
+  letter-spacing:$letter-spacing-titule
+  width: 100%
+  z-index: 8
+  +Fix(0,0) // (t,l,z-index,b,r)
+  background-color: $c-dGrin05
+  &:hover
+    background-color: $c-dGrin07
+    transition: background 0.3s
+// END header
+.box-header
+  display: grid
+  grid-template-columns: 1fr 1fr 
+  justify-content: end
+.logo
+  &-box
+    flex: 0 0 auto 
+  &-img 
+    margin: 1px 0 2rem
+    width: auto
+    height: $hed-height
+
+  
+//  ---  END .logo
+
+.navig 
+  margin: 0
+  height: 100%
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+  list-style-type: none
+  &__element
+    transition: background 2.6s
+    &:hover
+      background: $c-dGrin08
+      transition: background 0.5s
+  // END-element
+  a
+    margin: 0px auto
+    padding: 0 15rem
+    display: grid
+    align-content: center
+    justify-items: center
+    height: $hed-height
+    font-weight:600
+    text-decoration: none
+    color: $c-light
+    @media(max-width: 1300px) 
+      height: 50rem  
+  //END- A
+
+  &__btn
+    background:$c-btn-Red 
+    height:100% 
+    // align-self: center // для сына
+    a //   a  _btn
+      color: $c-wite
+      &:hover  
+        color: #000
+        transition: color  0.9s
+        font-size:16rem
+        padding: 0 15rem
+    // END  a  _btn
+    &:hover
+        background-color: $c-light
+        color: #000
+        transition: background 0.7s
+//END-btn
+//  ---  END .nav
+
+@media(max-width: 1300px) 
+
+  .navig__element , .navig__btn
+    height: 100%
+    a
+     height: 60rem
+    
+@media (max-width: 750px) 
+  .navig__element:nth-child(1)
+    display: none
+@media (max-width: 600px) 
+  .navig__element:nth-child(2)
+    display: none

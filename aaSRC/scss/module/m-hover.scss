@@ -1,0 +1,91 @@
+// http://ianlunn.github.io/Hover/
+ //todo - -  УВИЛИЧЕНИЕ - ZOOM        / Grow /             */
+ @mixin hover_zoom($size:1.1,  $speed:0.3s){
+  transform: perspective(1px) translateZ(0);
+  transition-duration: $speed;
+  transition-property: transform;
+   &:hover, &:focus, &:active {transform: scale($size);}
+}
+// @include hover_zoom($size:1.1)
+ //todo - -  нажатие -PRESS   / Sink /           */
+ @mixin active_press($down:8rem, $speed:0.3s) {
+    transform: perspective(1px) translateZ(0);
+    transition: transform $speed;
+    transition-property: transform translateY;
+    transition-timing-function: ease-out;
+   &:active { transform: translateY($down);}
+ }//-- END    ===----
+// @include active_press($down:8rem);
+
+// -=center line=-
+ /* todo   hvr-underline-from-center   */
+@mixin hover_center-line($color:#2098D1,$right:0,$left:$right, $height:4rem,$bottom:0 ){
+    // vertical-align: middle;// display: inline-block; // overflow: hidden;   // box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+  
+  &:before{
+    content: "";
+    @include Abs(n,51%,-1,$bottom,51%); // (t,l,z-index,b,r)
+    background: $color;
+    height: $height;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  &:hover:before, &:focus:before, &:active:before {
+    left: $left;
+    right:$right;
+  }
+} //-- END  hover_center-line  ===----
+// @include hover_center-line($color:#2098D1,$left: 0%,$right:0%, $height:4rem,$bottom:0 );
+
+ //todo - -  Bounce In    короткий пульс              
+@mixin hover_bounce-in($scale:1.2) {
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;//---------------------------
+    &:hover, &:focus, &:active {
+        -webkit-transform: scale($scale);
+        transform: scale($scale);
+        -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+        transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    }
+} //-- END   Bounce In  ===----
+// @include hover_bounce-in($scale:1.2) ;
+
+
+ //E        Заливка треугольниками                                    
+@mixin H-slise ( $w, $h, $b-color, $b-color-dark, $t:0.5s ){
+  overflow: hidden;
+  position: relative;
+  @include triangle(up-right, 0, $b-color-dark, true);
+  @include triangle(down-left, 0, $b-color-dark, true, before);
+  transition: $t ease-in-out;
+
+  &:before,&:after {
+    content: '';
+    @include Abs(); // (t,l,z-index,b,r)
+    @include size(0);
+    border: 0 solid;
+    transform: rotate(360deg);
+    transition: $t ease-in-out;
+  }&:before {
+    bottom: 0; left: 0;
+    border-color: transparent transparent transparent $b-color-dark;
+  } &:after {
+    top: 0; right: 0;
+    border-color: transparent $b-color-dark transparent transparent;
+  }
+  &:hover { 
+    transition: $t ease-in-out;
+    // color: tint($b-color, 75%);
+    &:before,&:after {  border-width: $h $w*1.05;}
+  }
+} //-- END   Bounce In  ===----
+//@include H-slise  ( $w, $h, $b-color, $b-color-dark)

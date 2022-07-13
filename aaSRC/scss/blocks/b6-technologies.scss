@@ -1,0 +1,69 @@
+
+.technologies{
+  height: $square-height + 70rem;
+  background: rgb(159,162,162);
+  background: linear-gradient(180deg, rgba(159,162,162,1) 0%, rgba(204,205,202,1) 43%, rgba(231,231,231,1) 100%);
+  @media(max-width: 790px) { height: $square-height - 50rem;}
+
+  &-ttl{
+    padding: 80rem 0 40rem 60rem;
+    color: rgb(250, 250, 250);
+    letter-spacing: 1.8rem;
+    @media(max-width: 910px) { font-size:29rem;}
+    @media(max-width: 740px) { padding: 50rem 0 40rem; margin: 0 auto;}
+  }
+
+  &-box{
+    // padding: 0 20rem;
+    display: grid;  
+    grid-template-columns: repeat(12 , 1fr) ;
+    // grid-template-rows:repeat(3 , 200rem) ;
+    justify-items: center;
+
+    grid-template-areas: " . htm htm    sass sass sass   js js  wp  wp wp  ."
+                         " gulp gulp . psh psh . react react react figma figma figma "
+                         ". . . illr illr illr svelte svelte . . . . " 
+                         ;
+
+    @media(max-width: 620px) { 
+    grid-template-areas: " . htm htm    sass sass sass   js js  wp  wp wp  ."
+                        " . . gulp gulp  . react react .  figma figma . . "
+                        ".  . psh psh  .  svelte svelte .   illr illr .  . " ; 
+    }                     
+
+    // justify-items: center; // выравнивание
+  }
+
+  &-element{
+    // border: solid 2rem;
+    height: 190rem;
+    align-items: center;
+    object-fit: cover;
+    // overflow: hidden;
+    display: flex;
+    @media(max-width: 790px) { height: 150rem;}
+    img{ height: 70%;}
+    // odd Все нечетные номера элементов.= 2n+1
+    // even Все четные номера элементов. = 2n
+    &:nth-child(1){ grid-area: htm; }
+    &:nth-child(2){  grid-area: sass;}
+    &:nth-child(3){ grid-area: js;}
+    &:nth-child(4){grid-area: wp;}
+    &:nth-child(5){grid-area: gulp;}
+    &:nth-child(6){grid-area: psh; padding-right: 40rem;
+      @media(max-width: 620px){padding-right: 10rem;}
+    }
+    &:nth-child(7){grid-area: react;}
+    &:nth-child(8){grid-area: figma; padding-right: 10rem;
+      @media(max-width: 620px){padding-right: 0rem;}
+    }
+    &:nth-child(9){grid-area: illr; padding-right: 0rem;
+      @media(max-width: 620px){padding-right: 0rem;}
+    }
+    &:nth-child(10){grid-area: svelte; }
+
+
+
+
+  }
+}

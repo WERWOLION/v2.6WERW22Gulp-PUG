@@ -1,0 +1,56 @@
+-
+  const NavList = [
+    //- {href:'index.html',name: 'Home' },
+    {href:'#popUpJsA', name: 'Your benefits' },
+    {href:'#popUpJsA', name: 'Our process' },
+    {href:'#popUpJsA', name: 'Our works'  },
+    {href:'#popUpJsA', name: 'Testimonials' },
+    {href:'#popUpJsA', name: 'Start a project' }
+  ]
+
+include ../modulus/mix
+include ../modulus/M-mixin
+//- = =- = =- = =- = =- = =- = =- = =- = =- = =- 
+header#header.header.lock-padding--js
+  .conteiner
+    .box-header
+
+      .logo-box
+        a(href="index.html")
+          img.logo-img(src="@img/IcoWerw21.svg", alt="logo")
+          |  
+      nav.navig-box
+        ul.navig
+          li.navig__element
+            a(href="#cover") Главная
+          li.navig__element
+            a(href="#contact") Контакты
+          li.navig__element
+            a(href="#services") Услуги
+          li.navig__element
+            a(href="#price") Стоимость
+          li.navig__btn
+            a(href="#popUpJsA").--js_link Связаться
+
+
+
+
+mixin newVersion
+    //- /*w wrapper
+    header.header
+      //- поменять меню на список
+      //- .--js_fixed{}    добавить класс для фиксированных блоков - скрыть скролл
+      //- помещать хедер в контейнер от прыжков фикса и выравнивать флексами
+      .header-alignment-js
+      //-/*w header
+      section.header__body
+        div.header_container
+            section.burger-nav
+              +logo
+              .burger__icon
+                span
+            
+            +logo
+            +M_navig-header(NavList)
+            a.btn-press.--js_link(href="#popUpJsA") Get started
+      //-  @@include("../moduls-costum/a-bnt--getStarted.html") 

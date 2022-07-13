@@ -1,0 +1,20 @@
+//-   command gulp   + использовать пути   @img   @scss  @js -->
+//-   npm run dev          npm run build    
+//-    npm run zip        npm run svgSprive        npm i     
+- var  titleSite = "1TCA";
+
+doctype html
+html(lang='en')
+ include z-html/base/head
+ body
+  include z-html/base/header   
+    //----- PAGE  ---------------------
+  section.error
+    h1  error 404 !
+    h2  Page not found!
+  //----- END  page  ----
+   include html/footer 
+  include z-html/modulus/popUPjs
+    //- include("z-html/moduls/toTop.html")  
+
+  script(src='js/app.min.js')

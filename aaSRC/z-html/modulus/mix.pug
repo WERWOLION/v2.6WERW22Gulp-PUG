@@ -1,0 +1,66 @@
+mixin list-element(href,name)
+  li.navig__element
+    a.navig__element--link(href=`${href}`)= name
+
+mixin list-element-JS(href,name)
+  li.navig__element
+    a.navig__element--link.--js_link(href=`${href}`)= name
+
+
+//----------------------
+          a(href="#popUp__Alert").btn-press.class= className 
+mixin list-element-b(href,name,classNameli,classNamelink)
+  li.class= classNameli 
+    a(href=`${href}` , class= classNamelink  )= name
+
+mixin list-element-JS-b(href,name,classNameli,classNamelink)
+  li.class= classNameli 
+    a.--js_link(href=`${href}` , class= classNamelink )= name
+
+//- 111111111111111111111111111111111111111111111111111111  
+
+mixin socials
+  ul.socials
+    li
+      a.socials__link-icon.--js_links(href="#popUpJsA")
+        +svg_facebook
+    li
+      a.socials__link-icon.--js_link(href="#popUpJsA")
+        +svg_youtube
+    li
+      a.socials__link-icon.--js_link(href="#popUpJsA")
+        +svg_linkedin
+    li
+      a.socials__link-icon.--js_link(href="#popUpJsA")
+        +svg_instagram
+
+mixin ul(object)
+     ul 
+       each element in object
+        li #{element}
+//- +ul(object)  //  - var menuEl = ['главная', 'чото там' , 'el3' , 'el4'];
+mixin logo
+  a.logo(href="index.html")
+    img.logo-img( src="@img/Logo.svg", alt="logo")
+
+
+mixin btn-static(className, text)
+     a(class= className)
+     | #{text}
+//- +btn-static(className,)
+mixin btn-press(className, text)
+     div.btn__wrapper <!-- Див от скрола - позиция абсолют -->
+       .btn__box
+          a(href="#popUp__Alert").btn-press.class= className 
+          |#{text}
+//- +btn-press(className, text)
+
+
+mixin phone(Name,tel,tel_Custom )
+     div(itemscope itemtype="https://schema.org/LocalBusiness")
+        h5 <h1 itemprop="name"> #{Name}
+        span( itemprop="telephone" )
+         a(href= tel) #{tel_Custom}   
+         //- <a href="tel:88001234567">88001234567</a>
+        
+    

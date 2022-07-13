@@ -1,0 +1,139 @@
+.form-mess{
+  margin: 30rem 0 0 130rem;
+  width: 100%;
+  max-width:380rem;
+  font-family: Helvetica, sans-serif;
+ 
+    &__input,&__textarea{   /* задаём для 2х классов */
+      display: block;
+      width: 100%;
+      background:$c-grey08 ; // $c-dGrin08;
+      margin-bottom: 6rem;
+      padding: 12px 18px;
+
+      font-family: inherit; /* 'Montserrat', sans-serif;  У инпутов по умолчанию свой шрифт / насл родителя */
+      color: rgb(255, 255, 255); /* цвет текста который будет набиратся в плейсхолдер - поле формы*/
+      font-size: 18rem;
+      font-weight: 500;  /* 500= медиум  */
+
+      border-radius: 5px;
+      border: 0;
+
+      &:hover {background-color:$c-dBlue07 ; transition: background 0.6s;}
+      &::placeholder {color: rgba(251, 251, 250, 0.756); }/* Меняем цвет шрифта у подсказки - плейсхолдера - полей ввода - два двоеточия*/
+    } 
+
+    &__textarea {
+      display: block;
+      height: 220rem;
+      resize: none; /* РЕСАЙЗ треуголник расширения поля */
+    }
+
+    &-btn{
+      background-color:$c-dBlue07 ;
+      font-size: 100%;
+      font-weight: 500;
+      margin: 5rem 0;
+      // box-shadow: rgba(0, 0, 0, 0.692) 0 3rem;
+      letter-spacing: 1.3rem;
+      cursor: pointer;
+      &:hover{background-color:rgba(42, 65, 85, 1); transition:background 0.1s ;}
+      &:active{background-color:rgba(231, 233, 235, 0.966);}
+    }
+
+}// ==============-END========.form-mess====================*
+
+// ---------------------------politic==========================================*=========================================*
+
+.chek-accept{
+  display: none;
+  &:checked + .chek-accept__label::after{
+    transform: scale(1);
+  }
+
+  &__label {
+    font-family: $font-base;
+    font-size: 14rem ;
+    font-weight: 600;
+    line-height:21rem;
+    margin: 0 0 0 8rem;
+
+    position: relative;
+    cursor: pointer;
+   
+    a{color: rgb(5, 21, 255); &:hover{text-decoration: underline; color: rgb(230, 230, 230); }}
+
+    &:before{
+      content: '';
+      display: inline-block;
+      align-self: flex-start;
+      flex: 0 0 24rem;
+      height: 16rem;
+      background-color: aliceblue;
+      margin: 0 10rem 0 0;
+      border:solid 0;
+      width: 14rem;
+    }
+
+    &:after{ 
+      content: '';
+      width: 10rem;
+      height: 10rem;
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+
+      background-color: rgb(5, 63, 255);
+      border-radius:2rem;
+      transform: scale(0);
+    }
+
+  }
+}
+// -----------------END------------- .acept-politic------------------------------------------------------------------------
+
+
+//-------------js---------------
+
+.form-mess{ // border:rgba(255, 0, 0, 0.389) 3rem solid;
+
+  &__input._error, &__textarea._error{box-shadow:0 0 5rem red;}
+
+  position: relative;
+  &::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius:5rem;
+      background:#000 url("/img/spiner.gif") center / 50rem no-repeat;
+      opacity: 0;
+      visibility: hidden;
+  }
+}
+
+ .form-mess._sending{ &::after{ opacity: 0.4;visibility: visible; ;}}
+
+ .accept-politics._error{
+   .chek-accept__label::before{box-shadow:0 0 5rem red;} 
+ }
+
+
+ // =END------------- .acept-politic------------------------------------------------------------------
+
+
+//--капча--
+// .grecaptcha-badge {
+// 	visibility: hidden;
+// }
+//Взамен под каждой формой написать «Защита от спама reCAPTCHA Конфиденциальность и Условия использования» со ссылками на соответствующие страницы Google.
+
+
+//  .rc-anchor-error-message{
+//    position: absolute;
+//    top: 2212rem;
+//    left: 2212rem;
+//    border: solid 22rem;
+//  }

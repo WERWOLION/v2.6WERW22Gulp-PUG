@@ -1,0 +1,177 @@
+//- Modulus mixin Lib
+mixin btn(className , href ,text)
+    .btn-box
+      a.btn(href= href) text
+
+
+//- socials
+mixin M_socials2
+  ul.socials
+    li
+      a.socials__link-icon.--js_link(href="#popUpJsA")
+        +svg_facebook
+    li
+      a.socials__link-icon.--js_link(href="#popUpJsA")
+        +svg_web
+    li
+      a.socials__link-icon.--js_link(href="#popUpJsA")
+        +svg_twitter
+
+//- socials
+mixin socials-pres
+  ul.socials--pres
+    li
+      a.socials__link-icon.run-js(href="#popUpJsA")
+        +svg_facebook
+    li
+      a.socials__link-icon.run-js(href="#popUpJsA")
+        +svg_youtube
+    li
+      a.socials__link-icon.run-js(href="#popUpJsA")
+        +svg_linkedin
+    li
+      a.socials__link-icon.run-js(href="#popUpJsA")
+        +svg_instagram    
+
+//- 111111111111111111111111111111111111111111111111111111
+mixin M_navig-header(object)
+  //- убрать класс js у ссылок
+  nav.navig.lock-padding--js.--js-active__burger-menu
+    ul.navig__menu
+        +list-element("index.html", "Home" ) 
+        each item in object
+          +list-element-JS(item.href, item.name) 
+//- 111111111111111111111111111111111111111111111111111111         
+//- each item, index in items
+//- if index == 0
+//-   li.blog-nav__item.active= item.title
+//- else
+//-   li.blog-nav__item= item.title          
+//- +ul(object)  //  - var menuEl = ['главная', 'чото там' , 'el3' , 'el4'];
+
+
+mixin M_users-box
+ section.cover__users-box
+    img(src="@img/ava_ico.svg", alt="icon").users-box__ava.users-box__ico   
+    img(src="@img/ava3.svg", alt="avatar").users-box__ava  
+    img(src="@img/ava2.svg", alt="avatar").users-box__ava   
+    img(src="@img/ava1.svg", alt="avatar").users-box__ava 
+    .users-box__text 45k+ Regular User.<a class="--js_link" href="#popUpJsA"> View Price Plan</a>
+    
+mixin M_users-box--profile 
+ section.cover__users-box.users-box--profile 
+    img(src="@img/ava-user-box7.png", alt="icon").users-box__ava    
+    img(src="@img/ava-user-box8.png", alt="avatar").users-box__ava.users-box__ava--profile    
+    img(src="@img/ava-user-box3.png", alt="avatar").users-box__ava.users-box__ava--profile     
+    img(src="@img/ava-user-box6.png", alt="avatar").users-box__ava.users-box__ava--profile   
+    .users-box__text.users-box__text--profile  Liked by <b> Habib </b> and 10k more.
+    a.--js_link(href="#popUpJsA") See all
+
+mixin M_input-search
+ section.cover__search
+    input(type="text" placeholder=" " name="search").search__input
+    label(for="search").search__label Where do you want to call?
+    a(href="#popUpJsA").--js_link.search__btn-icon
+      img(src="@img/search.svg", alt="icon")
+
+mixin M_slider-swiper
+  section.slider-js--on
+    section.swiper-wrapper
+    
+      section.slider_section.swiper-slide
+        .balance_right__text  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown Lorem Ipsum is simply dummy wn Lorem Ipsum is simply dummy when an unknown
+          .--relative
+            +svg_quote_right
+        .balance_right__commenter
+            img(src="@img/foto-c.png", alt="ava").commenter__ava.commenter__ava--a
+            section 
+              .commenter__name Jane Cooper
+              .commenter__specialty Visual Designer
+
+      section.slider_section.swiper-slide
+        .balance_right__text  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown Lorem Ipsum is simply dummy wn Lorem Ipsum is simply dummy when an unknown
+          .--relative
+            +svg_quote_right
+        .balance_right__commenter
+            img(src="@img/reviews-ava.png", alt="ava2").commenter__ava
+            section 
+              .commenter__name Mahi Hasan
+              .commenter__specialty Visual Designer
+
+      section.slider_section.swiper-slide
+        .balance_right__text  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown Lorem Ipsum is simply dummy wn Lorem Ipsum is simply dummy when an unknown
+          .--relative
+            +svg_quote_right
+        .balance_right__commenter
+            img(src="@img/reviews-ava2.png", alt="ava3").commenter__ava
+            section 
+              .commenter__name Jane Cooper
+              .commenter__specialty Visual Designer
+
+      section.slider_section.swiper-slide
+        .balance_right__text  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown Lorem Ipsum is simply dummy wn Lorem Ipsum is simply dummy when an unknown
+          .--relative
+            +svg_quote_right
+        .balance_right__commenter
+            img(src="@img/foto-c.png", alt="ava").commenter__ava.commenter__ava--a
+            section 
+              .commenter__name Jane Cooper
+              .commenter__specialty Visual Designer
+
+      section.slider_section.swiper-slide
+        .balance_right__text  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown Lorem Ipsum is simply dummy wn Lorem Ipsum is simply dummy when an unknown
+          .--relative
+            +svg_quote_right
+        .balance_right__commenter
+            img(src="@img/reviews-ava.png", alt="ava2").commenter__ava
+            section 
+              .commenter__name Mahi Hasan
+              .commenter__specialty Visual Designer
+
+      section.slider_section.swiper-slide
+        .balance_right__text  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown Lorem Ipsum is simply dummy wn Lorem Ipsum is simply dummy when an unknown
+          .--relative
+            +svg_quote_right
+        .balance_right__commenter
+            img(src="@img/reviews-ava2.png", alt="ava3").commenter__ava
+            section 
+              .commenter__name Jane Cooper
+              .commenter__specialty Visual Designer
+
+
+    //-
+    section.slider-nav
+        .slider_head__nav--next.slider-btn.slider-btn--left
+          +svg_arrow-slider
+        .slider_head__nav--prev.slider-btn.slider-btn--right
+          +svg_arrow-slider 
+
+//----------------------------------------------------------------
+mixin M_table__cart_sharing-level 
+  .--fsb  
+    table.cart_sharing-level__table
+      thead.table__thead
+        td.table__column-a Campaign source
+          +svg_triangle-arrow-two("table_ico-arrow-two")
+        td.table__column-b Level
+          +svg_triangle-arrow-two("table_ico-arrow-two")
+        td.table__column-c total
+          +svg_triangle-arrow-two("table_ico-arrow-two")
+      tr.table__tr 
+        td.table__column-a H5 orientation page
+        td.table__column-b 4 
+        td.table__column-c 405
+      tr.table__tr  
+        td.table__column-a Small program code
+        td.table__column-b 4 
+        td.table__column-c 400
+      tr.table__tr  
+        td.table__column-a H5 orientation page
+        td.table__column-b 3
+        td.table__column-c 405
+      tr.table__tr  
+        td.table__column-a Small program code
+        td.table__column-b 2 
+        td.table__column-c 405
+    
+    .table-scroll

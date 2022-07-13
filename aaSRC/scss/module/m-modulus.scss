@@ -1,0 +1,301 @@
+
+@mixin M-socials-blok($width:n) {
+  @if $width != n { width:$width;}
+  @include Fsb;
+  &__link-icon{
+    svg{ @include size(24rem); fill:#FAFAFA; }
+    opacity: .8;
+    @include  transition(1);
+    &:hover {  opacity: 1; @include  transition(1);}
+  }
+} // @include M-socials-blok;  // &__link-icon
+
+ /* todo  =Линии      image normalize  =--    -image norlize  -   */       
+ @mixin M_v-line--l($w,$h,$color) { //vertikal-line-left
+  &:before{  
+  content: "";  display: block;
+  @include size( $w, $h);
+  background: $color; /* position: absolute; left: 33%; */
+  }} //vertikal-line-left
+// @include M_v-line--l($w,$h,$color);
+@mixin M_v-line--r($w,$h,$color) { //vertikal-line-r
+&:after{  content: "";  display: block;
+  @include size( $w, $h); background: $color;
+}}  //vertikal-line-r
+// @include M_v-line--r($w,$h,$color);
+
+//E - -      btn-static                      
+@mixin M_btn ($btn_color,$text_color:n,$size_w:n,$size_h:$size_w, $btn_color-hover:n) {
+   // text-transform: uppercase;  // ЗАШЛАВНЫЕ
+    display: inline-block;
+    background:$btn_color;
+    text-align: center;
+    transition: all 1.2s;
+    @if $text_color != n { color: $text_color;} 
+    @if $size_w != n { width:$size_w; height:$size_h; line-height:$size_h ;}
+    @if $btn_color-hover != n {
+          &:hover{ 
+            background:$btn_color-hover;
+            transition: all 0.4s; }
+     }//-- END  IF  ===----
+ // &-box{}
+}
+// @include  M_btn ($btn_color,$text_color,$w,$h ,$btn_color-hover)  ;//($color,$txt_clr,$w,$h ,$color-hover)
+//El - -     BTN  -  press                          
+@mixin M_btn-press ($btn_color,$text_color:n,$size_w:n,$size_h:$size_w, $btn_color-hover:n){
+    position: absolute; top: 0;
+    @include size($size_w,$size_h);
+    @if $btn_color != n  {background-color: $btn_color;}
+    @if $text_color != n  {color: $text_color;}
+    text-align: center; transition: all 0.5s;
+    line-height: $size_h;
+    &__box{
+      position: relative;
+      @include size($size_w,$size_h);
+    }
+     &:hover{
+      @if $btn_color-hover != n  {  background-color: $btn_color-hover;}
+      transition: all 0.5s;
+     }
+    &:active {
+      top: 2rem;
+      transition: all 0.2s linear 0s;
+    }
+}  // ---END  ---            btn
+// @include M_btn-press ($btn_color,$text_color:n,$size_w:n,$size_h:$size_w, $btn_color-hover:n)  ;//($color,$txt_clr,$w,$h ,$color-hover)
+//E - -= Ava users-box = -                     
+@mixin M_users-box {
+    position: relative;;
+    &__ava{
+      position: absolute;
+      width: 38rem;
+      max-width: 100%;
+      &:nth-child(1){left: 66rem; }
+      &:nth-child(4){left: 2rem; }
+      &:nth-child(3){left: 22rem;}
+      &:nth-child(2){left: 44rem;}
+      &:hover{Z-index:2;}
+    }
+    &__text{
+      @include Abs(n,111rem,1,-31rem); // (t,l,z-index,b,r)
+        font-size: 16rem;line-height: 24rem;
+      a{ color: rgba(253, 144, 90, 1) ; text-decoration: none}
+    }
+ 
+}//-- END    ===----
+// @include M_users-box ;
+
+
+//El  todo - -= Input = -                     
+ @mixin M_input ($border-color:rgb(128, 253, 106)) {
+   // класс родителя .search  + установить плейсхолдер пробел
+  position: relative;
+  &__label{
+    @include Abs( 16rem,40rem,1); // (t,l,z-index,b,r)
+    color: rgb(162, 162, 162);
+    letter-spacing: 0.01em;
+    transition:0.9s;
+  }
+  &__input{
+    background: #FFFFFF;
+    // padding: 0 40rem 0; // отступ плесхолдера
+    outline: none;
+    border: none;
+    box-shadow: 0px 20rem 30rem #dedede40;
+    border-radius: 100rem;
+    &:hover{box-shadow: 0px 20rem 30rem rgba(222, 222, 222, 0.50);}
+    &:focus{  @include border(1rem,$border-color);} // (size,color)}
+    &::placeholder{
+      letter-spacing: 0.01em;
+      color: #A2A2A2;
+    }
+  }//-- END  __input  ===----
+
+  &__input:focus ~ .search__label,
+  &__input:not(:placeholder-shown) ~ .search__label {
+    top: -0rem;
+    font-size: 12rem;
+    opacity: .9;
+    transition:0.9s;
+  }
+
+}//-- END    ===----
+// @include M_input // for .search
+ /*EL  Accordion - spoiler    CSS            - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+ @mixin M_accordion{
+   .accordion {
+        position: relative;
+        &__btn {
+          position: absolute;
+          opacity: 0;
+        }
+        &__triger {
+        }
+        &__content {
+          display: none;
+        }
+      
+      
+      &__btn:checked ~ .accordion__content{
+        display: block;
+      }
+   }
+ }//-- END    ===----
+//@include M_accordion
+
+
+//Bl  M_table-horizontal                  
+@mixin M_table-horizontal {
+  padding: 72rem 10rem 0rem;
+  margin-left: 55rem;
+  background: #FFFFFF;
+  box-shadow: -200rem 0rem 200rem rgba(72, 183, 116, 0.08);
+  @include size(517rem,506rem);
+  @include Font(14rem,50rem,n,n,$font-secondary );//(size,h,w,col,name )
+  
+  &__ttl-column{
+    margin-bottom: 33rem;
+    display: flex ;
+    @include size(527rem,50rem);
+    background: rgba(227, 237, 238, 0.56);
+    border-radius: 6rem 0rem 0rem 6rem;
+    @include Font(15rem,n,n,#707398,$font-ttl);//(size,h,w,col,name )                     
+  }
+  &__list-column {
+     margin-bottom: 18rem;
+     height: 50rem;
+     display: flex ;
+     color: rgba(164, 164, 164, 1);
+     @include hover_zoom;
+     &:hover{
+        background: #FFFFFF;
+        box-shadow: 0rem 30rem 80rem rgba(16, 16, 16, 0.12);
+        border-radius: 6rem;
+        transition:.3s;
+     }  //-- END    ===---- 
+     .send_table__section--a{
+        @include Font(16rem,n,500,#525252);//(size,h,w,col,name )
+     } 
+   }//-- END    ===----
+    &__section--a{
+    margin-left: 20rem;
+    width: 206rem;
+    display: flex;
+        img{
+            @include size(44rem,29rem);
+            margin: 11rem 8rem 0 0;
+        }
+    }//-- END    ===----
+    &__section--b{width: 126rem;}
+    &__section--c{width: 127rem;}
+    &__section--d{}
+}//-- END    ===----
+// @include M_table-horizontal // for .search
+ /* todo    to top btn   */
+@mixin toTop-btn{
+  @include size( 60rem, 60rem);
+  @include Fix(n,n,30rem,40rem); z-index: 5;
+  cursor: pointer;
+  opacity: 0; visibility: hidden;
+  transition: all 1.2s;
+  &:hover{ opacity: 1; transition: all .6s;}
+}//----------------------------------------------
+ /* todo     btn-swipe                          */
+ @mixin M_btn-swipe  {
+ .btn-swipe{
+    width: 131rem; height: 45rem;
+    position: relative;
+    background: rgba(104, 87, 237, 0);
+    display: flex;
+    font-weight: 500;  
+    
+   &__wrapper {
+    margin: 0 30rem 0 0;
+    width: 147rem;
+    border: 2rem solid #6957ED;
+    border-radius: 8rem;
+    //--------------------------------------
+
+    &--female{
+    width: 147rem;
+    border: 2rem solid rgba(255, 59, 99, 1);
+    border-radius: 8rem;
+    }
+     //-----JS----------------
+    &.--unlocked-wrapper{  background: #6957ED; }
+     &.--unlocked-wrapper-female{ background: rgba(255, 59, 99, 1);  }
+       
+   } //--END--   __wrapper
+
+   &__name {
+    color: #6957ED;
+      margin: 0 0 0 80rem ; line-height: 45rem;
+      letter-spacing: 0.9rem;
+      &--female{
+        color: rgba(255, 59, 99, 1);
+        margin: 0 0 0 65rem ;line-height: 45rem; 
+      }
+
+      &--js{ //  js ----
+        color: #ffffff;
+        opacity: 0;
+        position:absolute ;
+        top: 11rem; left:12rem;
+        transition: all 0.5s;
+        &--female{
+          color: #ffffff;opacity: 0;
+          position:absolute ; top: 11rem; left:12rem;
+          transition: all 0.5s;
+        }
+
+        &.--unlocked-name-js{ //-----JS----------------
+          color: #ffffff;
+          opacity: 1;
+          position:absolute ;
+          top: 11rem; left:12rem;
+          transition: all 0.9s;
+        }
+      }
+    } // ---END---   __name 
+
+   &__slider { 
+    width: 35rem; height: 41rem;
+    background: rgba(105, 87, 237, 1);
+    border-radius: 8rem;
+
+    position: absolute; top: 1rem; left: 2rem;
+    transition: width 0.3s,border-radius 0.3s, height 0.3s;
+
+    cursor: pointer;
+    @include center;
+
+    &--female{ background: rgba(255, 59, 99, 1); }
+
+    // img { margin: 0 auto;}
+    &.--unlocked {
+      transition: all 0.3s;
+      background: rgba(255, 255, 255, 0.2);
+      right: -1rem !important;
+    }
+
+   } // END  __slider   __vector 
+  } //  ---END---.btn-swipe
+ 
+
+// ------  popUp  -----------
+.--unlocked-popUp{
+  opacity: 1;
+  visibility: visible;
+  transform: perspective(600rem) translate(0px, 0px) rotateX(0deg) ;//2 Угловое положение
+}
+
+.popUP__text--sub{
+  display: block;
+  font-size: 16rem;
+  align-items: center;
+  margin: 20rem auto 0;
+}
+ 
+}//-- END   btn-swipe    ===----
+ // @include M_btn-swipe ;
+

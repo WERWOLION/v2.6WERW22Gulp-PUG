@@ -1,0 +1,249 @@
+@mixin center { display: flex;  align-items: center;  justify-content: center;}
+ // 	@include center; //ccc
+@mixin Fsb{display: flex;justify-content: space-between;} 
+// @include Fsb; //fsb
+@mixin FsbA{display: flex; align-items:center; justify-content: space-between;}
+// @include fsbA;
+@mixin visibleAnimated {visibility: visible;   opacity: 1;   transition: all 0.8s ease;} 
+// 	@include visibleAnimated ;
+@mixin hidenAnimated {
+  visibility: hidden;   opacity: 0;
+  pointer-events: none; // запрет мыши
+  transition: all 0.3s ease 0s; 
+  // ease  -- 	Функция по умолчанию, переход начинается медленно, разгоняется быстро и замедляется в конце. 
+  // 0s задержка
+} 
+
+@mixin background-opacity($opacity,$z, $url:n ,$c:n){
+  // position: relative;
+  &:before{
+      content: "";
+      @if $url != n {background:$url;}
+      @if $c != n {background: $c;}
+      @include Abs(0,0,$z,0,0); // (t,l,z-index,b,r)
+      opacity: $opacity;    }
+} 
+//	@include background-opacity($opacity,$z, $url:n ,$c:n) ;  // url(../img/Glass-background.png)
+
+
+//Bl figure  
+@mixin arrow-v { // triangle 
+  @include size (0,0);
+  border-left: 5rem solid transparent; // transparent; - прозрачный
+  border-right:5rem solid transparent;
+  border-top: 10rem solid $c_white; 
+}//  @include  arrow-v
+
+@mixin triangle-b{
+  @include size(200rem);
+  background: linear-gradient(45deg, deeppink 50%, transparent 50%);
+  filter: drop-shadow(0rem 39.1656rem 22rem rgba(18, 0, 62, 0.9));
+}
+
+
+ /*E ▼ ▼ ▼ ▼        SPEC                  */
+@mixin link-c($color,$hover,$active:n,$visited:n){
+  color: $color; // a {}
+  &:hover{color:$hover;}
+  @if $active != n {  &:active{color:$active;}}
+  @if $visited != n {   &:visited{color:$visited;}}
+}
+// 	@include link-c($color,$hover,$active,$visited)
+@mixin size($w,$h:$w,$radius:n,$color:n,$c:n){
+  width:$w ; 
+  @if $h != n {height:$h ;} 
+  @if $radius != n { border-radius: $radius;}
+  @if $radius == c { border-radius: 50%;}
+  @if $h == c { border-radius: 50%;height:$w;}
+  @if $color != n { background:$color;}
+  @if $c != n { background:$c;}
+} 
+// 	@include size($w ,$h,$radius ,$color,$c);
+
+@mixin Abs($t:n,$l:n,$z:n, $b:n,$r:n){ 
+  position:absolute; @if $t != n {top: $t;} @if $l != n {left:$l;} @if $r != n {right: $r;} @if $b != n {bottom: $b;} @if $z != n {z-index: $z;}} 
+// 	@include Abs($top,$left,$bottom,$right,$z-index);
+
+@mixin Fix($t:n,$l:n,$z:n,$b:n,$r:n){position:fixed;
+  @if $t != n {top: $t;} @if $l != n {left:$l;}
+  @if $r != n {right: $r;} @if $b != n {bottom:$b;}
+  @if $z != n {z-index: $z;}
+} 
+// @include Fix($top,$left,$z-index,$bottom,$right); //- fix
+@mixin border($size:1px,$color:#000){ border: $size solid $color;} 
+// @include border($size,$color); //bbb
+
+@mixin Font($font-size:n,$line-height:n,$font-weight:n,$color:n,$name:n,$c:n ){ 
+  @if $font-size != n {font-size: $font-size;}
+  @if $line-height != n {  line-height: $line-height;}
+  @if $font-weight != n {font-weight:$font-weight;}
+  @if $color != n {color: $color;}
+  @if $c != n {color: $c;}
+  @if $name != n {font-family: $name;}}
+// @include Font($font-size,$line-height,$font-weight,$color,$name )
+@mixin transition($brake){
+  @if $brake == 1 {transition: all .4s ease 0s;}
+  @if $brake == 2 {transition: all .7s ease 0s;}
+  @if $brake == 3 {transition: all .8s ease 0s;}
+  @if $brake == 4 {transition: all 1.2s ease 0s;}
+  @if $brake == 5 {transition: all 1.7s ease 0s;} } 
+// @include transition(1); -5! // tra
+
+
+//el IMG       ▼ ▼ ▼ ▼   ▼ ▼ ▼ ▼   ▼ ▼ ▼ ▼   ▼ ▼ ▼ ▼   ▼ ▼ ▼ ▼ 
+@mixin img($w:100%,$h:100%,$r:n)  {  // normalize
+  @if $w != n {@include size( $w, $h, $r);};
+  object-fit: cover; object-position: center;
+} // @include img($w:100%,$h:100%)
+
+@mixin img-gum($w:100%,$h:100%,$r:n)  {  
+  @include size( $w, $h, $r);
+  object-fit: cover;
+  @include Abs(0,0);
+  &__frame{ position:relative; padding-bottom:50%; overflow:hidden;} // .img_cntr{}
+} // @include img-gum($w:100%,$h:100%) + &__frame
+
+@mixin background-image_dance{
+  background-image:url(../../img/foto-b.png) ;
+  background-position:center 10%;
+  background-size:145%;
+}
+//fix                                               
+@mixin img_size-position_dance ($sw:100%,$sh:$sw, $x:50% , $y:50%){
+  @include size(182%);
+  object-fit: cover;
+  object-position: 50% -22rem;
+}
+@mixin img_dance ($sw:100%,$sh:$sw, $x:50% , $y:50%){
+  @include size($sw,$sh);
+  object-fit: cover;
+  object-position: $x $y;
+}
+// @include img_dance ($sw:100%,$sh:$sw, $x:50% , $y:50%)
+// @include img_size-position_dance ($sw:100%,$sh, $x:50% , $y:50%)
+
+ /*E   TEST             */
+
+//  @mixin padd($padd...){
+//    padding:$padd ;
+//  }
+@mixin btn($w,$h:$w,$color:n,$text-color:n, $hover-color:n,$text-hover-color:n ){
+  width: $w; height: $h;
+  @if $color != n {background-color:$color;}
+  @if $text-color != n { color: $text-hover-color;}
+ 
+  &:hover{ 
+    @if $hover-color != n  { background-color: $hover-color;}
+    @if $text-hover-color != n {color: $text-hover-color;}
+  }
+}// @include btn($w,$h:$w,$color:n,$hover-color:n,$text-color:n,$text-hover-color:n )
+
+//fix
+@mixin triangle-enemy($direction: right,	$size: 16rem,	$color: #222,	$center: false, $element: after) {
+	&:#{$element} {
+		@if not $center {	position: absolute;}
+		content:'';
+    @include size(0);
+		-webkit-transform: rotate(360deg);
+		border-style: solid;
+		@if $direction == up {
+			border-width: 0 $size ($size*1.625) $size;
+			border-color: transparent transparent $color transparent;
+			@if $center {
+				// @include absolute(null,null,100%,50%);      //$top, $right, $bottom, $left
+        @include Abs(n,50%,n,100%,n); // (t,l,z-index,b,r)
+				transform: translateX(-$size);
+			}
+		}
+		@else if $direction == up-right {
+			border-width: 0 $size $size 0;
+			border-color: transparent $color transparent transparent;
+			@if $center {
+				// @include absolute(0,0);  //$top, $right, $bottom, $left
+        @include Abs(0,n,n,n,0); // (t,l,z-index,b,r)  
+			}
+		}
+		@else if $direction == right {
+			border-width: $size 0 $size ($size*1.625);
+			border-color: transparent transparent transparent $color;
+			@if $center {
+				// @include absolute(50%,null,null,100%); //$top, $right, $bottom, $left
+        @include Abs(50%,100%); // (t,l,z-index,b,r)  
+				transform: translateY(-$size);
+			}
+		}
+		@else if $direction == down-right {
+			border-width: 0 0 $size $size;
+			border-color: transparent transparent $color transparent;
+			@if $center {
+				// @include absolute(null,0,0);//$top, $right, $bottom, $left
+        @include Abs(n,n,n,0,0); // (t,l,z-index,b,r)  
+			}
+		}
+		@else if $direction == down {
+			border-width: ($size*1.625) $size 0 $size;
+			border-color: $color transparent transparent transparent;
+			@if $center {
+				// @include absolute(100%,null,null,50%);//$top, $right, $bottom, $left
+        @include Abs(100%,50%); // (t,l,z-index,b,r) 
+				transform: translateX(-$size);
+			}
+		}
+		@else if $direction == down-left {
+			border-width: $size 0 0 $size;
+			border-color: transparent transparent transparent $color;
+			@if $center {
+				// @include absolute(null,null,0,0);//$top, $right, $bottom, $left
+        @include Abs($b:0,$l:0); // (t,l,z-index,b,r) 
+			}
+		}
+		@else if $direction == left {
+			border-width: $size ($size*1.625) $size 0;
+			border-color: transparent $color transparent transparent;
+			@if $center {
+				// @include absolute(50%,100%);//$top, $right, $bottom, $left
+        @include Abs(50%,$r:100%); // (t,l,z-index,b,r) 
+				transform: translateY(-$size);
+			}
+		}
+		@else if $direction == up-left {
+			border-width: $size $size 0 0;
+			border-color: $color transparent transparent transparent;
+			@if $center {	
+        // @include absolute(0,null,null,0);//$top, $right, $bottom, $left
+        @include Abs(0,0); // (t,l,z-index,b,r) 
+      	}
+		}
+		@else {
+      	@warn "Available directions: up, up-right, right, down-right, down, down-left, left, up-left.";
+		}
+		@content;
+	}
+}
+// @include($direction,	$size,	$color,	$center,	$element)
+
+
+
+ //bl                                          
+ //BL - Сложные примеры                      
+
+ @mixin exampleСolorsMixin  ($qq){
+  .#{$qq}{  color:red;}
+ }
+//  @include colors(myClass);
+
+ @mixin exampleRtlMixin($property, $ltr-value, $rtl-value) {
+  #{$property}: $ltr-value;
+  [dir=rtl] & {
+    #{$property}: $rtl-value;
+  }
+}
+// .sidebar {  @include rtl(float, left, right); }
+// CSS 
+// .sidebar { float: left;}
+// [dir=rtl] .sidebar { float: right;}
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+   <!-- command gulp -->
+  <!-- npm run dev -->
+  <!--  npm run build -->
+  <!-- npm run zip -->
+  <!-- npm run svgSprive     -->
+ @@include('html/head.html', { 'title': 'Hatsevich Ivan - portfolio' })  <!-- title = переменная , нужно указать -->
+
+
+<body >
+        <!-- .header -->
+      @@include("module/_header.html")
+      <!-- .PAGE -->
+      @@include("module/_titul.html")
+      <!-- .service -->
+      @@include("module/_services.html")
+      <!-- .примеры работ -->
+      @@include("module/_work-examples.html")
+
+      @@include("module/_price.html")
+
+      @@include("module/_contacts.html")
+
+      @@include("module/_technologies.html")
+      
+      @@include("module/_footer.html")
+
+
+      <!------------- moduls ------------------------->
+      @@include("html/moduls/popUPjs.html")
+
+      
+         <!-- .JS -->
+         <script src="js/app.min.js"></script>
+
+      <!-- js-скрипт гугл капчи -->
+      <script src="https://www.google.com/recaptcha/api.js?render=6Lebj_sdAAAAAFRRZHaylmb2HwfPeRvfM8RM8IcI"></script>
+
+   
+
+      <!------- END--- -.JS --------- END--->
+</body>
+</html>

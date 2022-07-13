@@ -1,0 +1,68 @@
+.popUP {
+  position: fixed; // top: 13vh; left: calc(50vw - 270rem) ;
+  top: 0;left: 0; z-index: 4;
+
+  width: 100%; height: 100%;
+  background-color:$c-grey08; // border-radius: 40rem;
+
+  //появление------------------------------------
+  opacity: 0;  visibility: hidden;
+  overflow-y: auto; overflow-x: hidden; // вкл прокрутку окна
+
+    //!анимация---------------
+    transition: all 0.8s ease 0s;
+    //++++++++++  2я анимация-------------  
+    &:target .popUP__content { // .open - выбор по ID
+      // transform: translate(0px, 0px) ;  // выподающее 1 вариант
+      transform: perspective(600rem) translate(0px, 0px) rotateX(0deg) ;//2 Угловое положение
+      opacity: 1;
+    }
+    //!END-------------
+
+    &:target{ opacity: 1; visibility: visible; } // .open - выбор по ID
+    &__area{
+      position: absolute;top: 0;left: 0;
+      width: 100%;height: 100%;
+    }
+  //END появление-----------------------------------
+
+    &__body {
+      // width: 500rem;  // height:500rem ;
+      min-height: 100%;
+      padding: 30rem 20rem;
+
+      display: flex;
+      align-items:center;
+      justify-content: center;
+
+    }
+    &__content {
+      background-color: aliceblue;
+      max-width:500rem ;
+      padding: 40rem;
+      
+      position: relative;
+     //!анимация---------------
+        // transform: translate(0px, -100%) ;// ПАДЕНИЕ
+        transform: perspective(600rem) translate(0px, -100%) rotateX(45deg) ;//2 Угловое положение
+
+        opacity: 0;
+        transition: all 0.8s ease 0s;
+      //!END-------------
+    }
+    &__title {
+      margin: 0 0 15rem;
+    }
+    &__text {
+    }
+    &__button--close {
+      position: absolute;
+      right: 20rem; top: 15rem;
+      font-size: 30rem;
+      color: #000;
+    }
+
+}// END ---.popUP -----
+
+
+

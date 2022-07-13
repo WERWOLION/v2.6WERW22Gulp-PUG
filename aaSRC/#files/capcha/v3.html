@@ -1,0 +1,35 @@
+<!-- Версия 2 -->
+<!-- добавляем в форму -->
+<div class="g-recaptcha" data-sitekey="apiKey"></div>
+
+
+
+<!-- ------------------------Версия 3------------------------------- -->
+
+<script src="https://www.google.com/recaptcha/api.js?render=apiKey" ></script>
+<script>
+    grecaptcha.ready(function () {
+        grecaptcha.execute('apiKey', { action: 'contact' }).then(function (token) {
+            var recaptchaResponse = document.getElementById('recaptchaResponse');
+            recaptchaResponse.value = token;
+            console.log(token);
+        });
+    });
+</script>
+<script>
+     alert("Тест из корня1");
+    grecaptcha.ready(function () {
+        alert("Тест из корня2 - если нет теста 3 значит вы неуказали ключь");
+        grecaptcha.execute('apiKey', { action: 'contact' }).then(function (token2) {
+            alert("Тест из корня3 - ключь прошёл");
+            var recaptchaResponse2 = document.getElementById('recaptchaResponse2');
+            recaptchaResponse2.value = token2;
+            console.log(token2);
+        });
+    });
+</script>
+
+
+
+<!--  затем для каждой формы соответствующий инпут -->
+<input type="hidden" name="recaptcha_response" id="recaptchaResponse">

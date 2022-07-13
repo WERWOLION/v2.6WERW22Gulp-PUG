@@ -1,0 +1,19 @@
+<form class="form-mess" action="#" id="formMess">  <!-- method="post" -->
+
+      <input class="form-mess__input _req " id="formName" type="text" placeholder="Введите ваше имя *" name="name" >
+      <input class="form-mess__input _req _email" id="formEmail" type="text" placeholder="Введите адрес вашей почты *" name="email" >
+      <textarea class="form-mess__textarea _req" id="formMessage" type="text" placeholder="Введите сообщение*" name="message" ></textarea>
+  
+      <div class="accept-politics ">
+         <input class="form-mess__input chek-accept _req " type="checkbox" name="acceptPolitics" id="acceptPoliticsID" >
+         <label class="chek-accept__label "  for="acceptPoliticsID"  >Я согласен(а) с <a href="politics.html"> политикой конфиденциальности</a></label>
+      </div>   
+
+      <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+
+      <button class="form-mess__input form-mess-btn g-recaptcha" type="submit" id="formBtn" >отправить сообщение</button>
+
+
+
+<!--       -----------            reCaptcha---------------------------- -->
+</form>

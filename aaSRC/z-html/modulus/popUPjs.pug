@@ -1,0 +1,111 @@
+
+//-1       
+section#popUpJsA.popUP.wrapper
+  //  модальное окно 1 Форма связи 2 
+  .popUP__body
+    .popUP__content
+      a.popUP__button--close.close-popUP--js#popUpClose(href="##") X
+      h2.popUP__title модальное окно 1 Форма связи 2
+      .popUP__text
+        a#btnToPopup2(href="test-parallax.html") -> модальное окно 2 
+        p Ваше сообщение успешно отправлено , ожидайте ответа.
+// --------- END-------------- popUpAlert 
+//-  Нажимая на кнопку, я соглашаюсь с политикой обработки персональных данных
+//- и принимаю правила пользования Платформой 
+
+
+//-2    
+section(id='#popUpJsB').popUP
+  .popUP__body
+    .popUP__content
+      h2.popUP__title Это модальное окно 2 c ссылками
+      a#btnToAlert.popup-link--js(href="#popupFormAlert")
+      a#btnToMessage.popup-link--js(href="#popupFormMessage")
+      a.popUP__button--close.close-popUP--js#popUpClose2(href="##") X
+
+//-3    
+section(id='#popupFormAlert').popUP
+  // сообщения об ошибках 
+  .popUP__body
+    .popUP__content
+      a.popUP__button--close.close-popUP--js(href="##") X
+      h2.popUP__title
+      #popUpTextFormAlert.popUP__text
+
+//-4    
+section(id='#popupFormMessage').popUP
+  // сообщения об ошибках 
+  .popUP__body
+    .popUP__content
+      a.popUP__button--close.close-popUP--js(href="##") X
+      h2.popUP__title
+      #popUpTextFormMessage.popUP__text
+
+
+mixin popUp_v5
+  section(id='#popUpJsA').popUP.wrapper
+    //  модальное окно 1 Форма связи 2   // .lock-padding--js   добавить класс для фиксированных блоков - скрыть скролл
+    .popUP__body
+      .popUP__content
+        a( href="##" id="popUpClose").popUP__button--close.close-popUP--js x
+        .logo-box.logo-box--popUP
+        a(href="index.html")
+            img.logo-img( src="@img/Logo.svg", alt="logo")
+
+        .popUP__text This is a demo version of the web-site
+
+mixin popUp_Lib
+    // --------- END-------------- popUpAlert 
+    section#popUpJsB.popUP.wrapper
+      // body - выравнивание отсутупов  
+      .popUP__body 
+        .popUP__content
+          .logo-box.logo-box--popUP.logo-box--popUP-basket
+            //- include ../SVGhtml/--basket--svg
+
+          .popUP__text This is a demo version of the web-site
+              a( href="##" id="popUpClose").popUP__button--close.close-popUP--js x
+
+
+    section#popUpJs_old__TEST.popUP.wrapper
+      //  модальное окно 1 Форма связи 2   // .lock-padding--js   добавить класс для фиксированных блоков - скрыть скролл
+      .popUP__body
+        .popUP__content
+          a.popUP__button--close.close-popUP--js#popUpClose(href="##") X
+          h2.popUP__title модальное окно 1 Форма связи 2
+          .popUP__text
+            a#btnToPopup2(href="test-parallax.html") -> модальное окно 2 
+            p Ваше сообщение успешно отправлено , ожидайте ответа.
+    // --------- END-------------- popUpAlert 
+    //
+        Нажимая на кнопку, я соглашаюсь с политикой обработки персональных данных
+          и принимаю правила пользования Платформой 
+    section#popUpJsB.popUP
+      .popUP__body
+        .popUP__content
+          h2.popUP__title Это модальное окно 2 c ссылками
+          a#btnToAlert.run-js(href="#popupFormAlert")
+          a#btnToMessage.run-js(href="#popupFormMessage")
+          a.popUP__button--close.close-popUP--js#popUpClose2(href="##") X
+
+       
+          
+    // --------- END-------------- popUpAlert 
+    section#popupFormAlert.popUP
+      //  сообщения об ошибках 
+      .popUP__body
+        .popUP__content
+          a.popUP__button--close.close-popUP--js(href="##") X
+          .popUP__title
+          #popUpTextFormAlert.popUP__text
+
+    // --------- END-------------- popUpAlert 
+    section#popupFormMessage.popUP
+      //  сообщения об ошибках 
+      .popUP__body
+        .popUP__content
+          a.popUP__button--close.close-popUP--js(href="##") X
+          h2.popUP__title
+          #popUpTextFormMessage.popUP__text
+    // --------- END-------------- popUpMessage 
+//-- END  mixin popUp_Lib  ===----

@@ -1,0 +1,25 @@
+.examples{
+  height:950rem;   background: $c-dBlue;
+
+  &__tittle{
+    color:$c-light ;
+    padding-top: 20rem;
+    margin: 0 90rem 20rem; }
+
+  &-img{
+    width: 100%; height: 100%; 
+    object-fit: cover;
+    object-position: center;
+    
+      &__box{
+        display: grid;
+        grid-template-columns:repeat(4, 1fr) ; 
+        grid-template-rows: repeat(2, 420px);
+        justify-items: center; // выравнивание
+        grid-gap:3px;  //  зазор
+      }
+
+      &__frame{ overflow: hidden; } 
+
+  } //---------END------img
+}  //---------END-----examples

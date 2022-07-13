@@ -1,0 +1,100 @@
+// /*todo sticky-header---------------
+.--js_sticky-header.header{ background-color: none;}
+.--js_sticky-header .header__body{
+  background: $c_sticky-header_background;
+  padding-bottom: 7rem;
+  @include Fix(0,0,6,n,0);// (t,l,z-index,b,r)
+} 
+.--js_sticky-header .header-alignment-js{
+ margin-bottom:80rem;} // полная длинна + 2px}// FIX   
+ //-- popUP----------------------------------------------
+//  .--js_fixed{}  {padding-right:15rem;}
+body.--js-lock__body{
+  overflow-y: hidden;
+  .header.--js_sticky-header{
+    .header__body{ padding-right:$scrollbar-size;} //fix  padding
+  }
+}; 
+@-moz-document url-prefix() { //w  =========================================== 
+  body.--js-lock__body{
+    .header.--js_sticky-header{
+      .header__body{ padding-right:0px;} //fix  padding
+      .burger__icon{ margin-right:0px;}
+    } // 17px // 8px; 
+   }; 
+  body.--js-lock__body--burgerMenu{
+    .burger__icon{ margin-right:0px}}// прыжёк
+} // moz-document //w   
+
+
+
+
+
+
+ //e -   mixin                                                        
+                                                
+
+// /*e burger-menu  */
+
+// @mixin  JS-burger-menu  {
+//     .navig.--js-active__burger-menu{
+//       right: -300rem;
+//       transition: right 0.7s ease 0s;
+//     }
+//     body.--js-lock__body--burgerMenu{
+//       overflow: hidden;
+//       .burger__icon{
+//         span {transform: scale(0) translate(0rem,-50%);}
+//         &::before {bottom:50%; transform: rotate(45deg) translate(0,50%);}
+//         &:after {top:50%; transform: rotate(-45deg) translate(0,-50%);}
+//       }//body.
+//     }
+// } //   @include  JS-burger-menu;
+// //w                                     
+// @include  JS-burger-menu;
+
+// /*todo  JS .swiper  
+@mixin JS-swiper {
+  .swiper-pagination{
+    position: static;
+    @include center;
+    width: 100%;
+  }
+  .swiper-pagination-bullet {
+    @include size (8rem);
+    background:$c_1TCA-Blue;
+    opacity: 1;
+    margin: 0 6rem !important ;
+  }
+  .swiper-pagination-bullet-active{
+    @include size (14rem);
+    border: 3px solid $c_1TCA-Blue;
+    background:$c_white;
+  }
+}//-- END    ===----
+
+// @include JS-swiper;
+
+ /* todo    accordion    CSS - */
+
+@mixin JS-accordion{
+  .accordion {  position: relative;
+    &__btn {position: absolute; opacity: 0; left: -40rem;}
+    &__triger { }
+    &__content {  visibility: hidden; height: 0; opacity: 0; overflow: hidden; } // display: none;
+    &__arrow{ }
+  } 
+
+  .--js-rotation{} // JS
+
+  .accordion__btn:checked ~ .#{accordion__content}{  // Комбинатор '~' выбирает элементы, которые находятся на этом же уровне вложенности,
+  visibility:visible; 
+  animation: accordion__content 1.5s forwards;
+  margin: 20rem 0 44rem 40rem;
+  } // Комбинатор '~' выбирает элементы, которые находятся на этом же уровне вложенности,
+  // после указанного элемента, с тем же родителем.
+}//-- END    ===----
+
+
+
+

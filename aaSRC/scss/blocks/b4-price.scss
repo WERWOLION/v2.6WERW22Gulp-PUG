@@ -1,0 +1,53 @@
+.price{
+  height: $square-height - 70rem ;
+  background: rgb(230, 229, 229);
+  background-position:-899rem 0% ;
+  background-image:url(/img/fon-prace.svg);
+  background-repeat:no-repeat;
+  background-size:auto $square-height;
+
+  overflow: hidden;
+  position: relative;
+
+  &-tittle{
+    font-size: 32rem;
+    padding-top: 50rem;
+    margin: 0 0 10rem 15rem;
+    color: $c-violet;
+  }
+
+  &-box{
+    display: flex;
+    flex-direction: column;
+
+    font-size: 19rem;
+    line-height: 32rem;
+  }
+
+      &-element{     
+        display: flex;
+        align-items: flex-end;
+      }
+
+      &-services{
+      }
+      &__dots {
+        flex-grow: 1;
+        border-bottom: 2px dotted $c-grey08;
+      }
+      &-cost{
+      //  text-align: center;
+        flex-basis: 150px;
+        padding: 0 3rem ;
+        }
+
+  &-logo-img{
+    width: 600rem;
+    position: absolute;
+    opacity: 0.03 ;
+    top: 200rem;
+    right: -15%;
+
+  }
+
+}  //**** END ********* price

@@ -1,0 +1,156 @@
+.popUP {
+  position: fixed; // top: 13vh; left: calc(50vw - 270rem) ;
+  top: 0;left: 0; z-index: 9;
+  width: 100%; height: 100%;
+  background-color:rgba(0, 26, 73, 0.178); // border-radius: 40rem;
+  //появление------------------------------------
+  opacity: 0;  visibility: hidden;
+  overflow-y: auto; overflow-x: hidden; // вкл прокрутку окна
+
+    //!анимация---------------
+    transition: all 0.8s ease 0s;
+    //++++++++++  2я анимация-------------  
+    &:target .popUP__content { // .open - выбор по ID
+      // transform: translate(0px, 0px) ;  // выподающее 1 вариант
+      transform: perspective(600rem) translate(0px, 0px) rotateX(0deg) ;//2 Угловое положение
+      opacity: 1;
+    }
+    //!END-------------
+
+    &:target{ opacity: 1; visibility: visible; } // .open - выбор по ID
+    &__area{
+      position: absolute;top: 0;left: 0;
+      width: 100%;height: 100%;
+    }
+  //END появление-----------------------------------
+
+    &__body {
+      // width: 500rem;  // height:500rem ;
+      min-height: 100%;
+      padding: 30rem 20rem;
+      
+      display: flex;
+      align-items:center;
+      justify-content: center;
+    }
+
+    &__content {
+      background-color: rgba(105, 87, 237, 1);
+      border-radius: 20rem;
+      max-width:600rem ;
+      padding: 50rem;
+
+      box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
+      position: relative;
+     //!анимация---------------
+        // transform: translate(0px, -100%) ;// ПАДЕНИЕ
+        transform: perspective(600rem) translate(0px, -100%) rotateX(45deg) ;//2 Угловое положение
+
+        opacity: 0;
+        transition: all 0.8s ease 0s;
+      //!END-------------
+    }
+    &__title {
+      margin: 0 0 15rem;
+    }
+    &__text {
+      font-size: 25rem;
+      color: rgb(255, 255, 255);
+    }
+
+    &__button--close {
+      position: absolute;
+      right: 10rem; top: 6rem;
+      font-size: 30rem; font-weight:700;
+
+      color: rgba(105, 87, 237, 1);
+      width: 30rem;  height: 30rem;
+      text-align: center;line-height:24rem ;
+
+      background-color: rgb(250, 250, 250);
+      border-radius:50%;  
+      &:hover {  color: rgb(39, 33, 88);; transition: all .3s;}
+    }
+}// END ---.popUP -----
+
+
+
+ /* todo JS  swipe  */   
+.popUP--swipe{
+  position: absolute; // top: 13vh; left: calc(50vw - 270rem) ;
+  top: 80rem;right: 120rem; z-index: 7;
+  height:430rem ;
+  @media (max-width: 1080px){right: 20rem;}
+  @media (max-width: 700px){
+    width: 96%; right: 30rem;
+    top: 0rem;         }
+  @media (max-width: 550px){width: 105%; right: -10rem }
+  
+  //появление------------------------------------
+  opacity: 0;  visibility: hidden;
+  overflow-y: auto; overflow-x: hidden; // вкл прокрутку окна
+
+    //!анимация---------------
+    transition: all 0.8s ease 0s;
+    //++++++++++  2я анимация-------------  
+  &:target .popUP__content { // .open - выбор по ID
+    // transform: translate(0px, 0px) ;  // выподающее 1 вариант
+    transform: perspective(600rem) translate(0px, 0px) rotateX(0deg) ;//2 Угловое положение
+    opacity: 1;
+  }
+  //!END-------------
+
+  // JS
+  &.--unlocked-popUp-js .popUP__content--swipe{
+    // transform: translate(0px, 0px) ;  // выподающее
+    transform: perspective(600rem) translate(0px, 0px) rotateX(0deg) ;//2 Угловое положение
+    opacity: 1;
+  }
+  &.--unlocked-popUp-js{ opacity: 1; visibility: visible; } // target - выбор по ID
+     
+} //END-------------
+
+.popUP__content--swipe{
+
+    background-color: rgba(105, 87, 237, 1);
+    &.female--red{
+      background-color: rgba(255, 59, 99, 1);
+    }
+    border-radius: 20rem;
+    height: 350rem; max-width:600rem ;
+    padding: 50rem;
+
+    box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
+    
+    position: relative;
+   @media (max-width: 660px){padding: 30rem; }
+
+    //анимация---------------
+      // transform: translate(0px, -100%) ;// ПАДЕНИЕ
+      transform: perspective(600rem) translate(0px, -100%) rotateX(45deg) ;//2 Угловое положение
+      opacity: 0;
+      transition: all 0.8s ease 0s;
+    //END-------------
+  
+}
+
+.popUP__text{
+  line-height: 34rem;
+  &-box{
+    @media (max-width: 660px){padding: 30rem; }
+    @media (max-width: 560px){padding: 10rem; }
+  }
+  &_ttl{
+    color: rgb(255, 255, 255);
+    margin: 0 0 30rem;
+    @media (max-width: 560px){margin: 0 0 20rem; }
+  }
+  &--sub{  
+    color: #fff;
+    margin: 0;
+    @media (max-width: 660px){margin-left:30rem;
+    margin: 0;}
+  }
+
+
+}

@@ -1,0 +1,187 @@
+.cover
+  +size(100%)  //(w ,h,radius ,color,c) 
+  max-height:$square-height  //800
+  // background-image: url(/img/title.jpg)
+  background-repeat: no-repeat 
+  background-position: center center
+  background-size: cover// интуитивная растяжка
+  letter-spacing: $letter-spacing-titule
+  max-height:900rem
+  &-box
+    padding-top: $hed-height + 4rem
+    width: 100%
+    //-------- TEXT-------------
+  &-text
+    max-width: 800rem
+    color: $c-light
+    padding: 2rem
+    position: relative/////
+    left: 1%
+    top: 70rem
+    z-index: 2
+    &__title
+      margin:0 0 0 1rem
+      text-shadow: 2px 4px 3px rgba(0,0,0,0.3)
+      +Font(62rem,45rem,700)  //(size,h,w,col,name )
+      color: $c-wite
+      font-family:$font-ttl //----
+    &__subtitle
+      margin:1rem 0 20rem 25rem
+      +Font(37rem,n,600)  //(size,h,w,col,name )  
+      color: $c-wite
+      letter-spacing:3rem
+      font-family:$font-ttl //----
+    &__descript
+      margin:  0 0 0 5rem
+      font-size: 19rem
+      line-height:30rem 
+      font-weight: 300
+      padding: 20rem 20rem 20rem 
+      background:$c-grey08  // $c-dGrin08
+      backdrop-filter: blur(5px)
+      color: $c-wite
+
+  &-foto 
+      +Relative(70rem,65%,5) // (t,l,z-index,b,r)
+      width: 50% //увеличено для перемещения картинки
+      +Test-mss_Mask-SVG(url(../img/SVG-MASK.svg))
+      -webkit-mask-size: 350rem
+      mask-size: 350rem
+.author-foto
+    object-fit: cover
+    object-position: 0rem 0rem
+    width: 420rem
+    +Relative(-90rem,-10rem) // (t,l,z-index,b,r)
+// END-foto 
+
+  
+//w .parallax 
+// body
+//   height: 100%
+// .parallax-wrapper  
+//   min-height:100%
+.--container 
+  max-width:1300rem
+  margin: 0 auto
+  padding: 50rem 20rem
+.parallax
+  min-height:100vh
+  min-height:570rem
+.parallax__body 
+  +Fix(0,0) // (t,l,z-index,b,r)
+  +size(100%,100%)  //(w ,h,radius ,color,c) 
+  z-index: -1
+
+.parallax__img
+  +Abs(-10%,-10%, 1) // (t,l,z-index,b,r)
+  +size(120%)  //(w ,h,radius ,color,c) 
+.img-parallax__itm
+    +Abs(0,0) // (t,l,z-index,b,r)
+    +size(100%)  //(w ,h,radius ,color,c) 
+    &-d
+      z-index: 7
+
+.img-parallax
+  &__a , &__b-fon , &__c-masc , &__d
+    +Abs(n,0) // (t,l,z-index,b,r)
+    +size(100%)
+  &__a 
+    background: url(../img/title.jpg) top / cover no-repeat
+    // background-color: #342121
+    top: 0
+  &__b-fon 
+    background: url(../img/parallax1.png) top / cover no-repeat
+    top: 0
+  &__c-masc
+    background: url(../img/parallax2.png) top / cover no-repeat
+    top: -10rem
+  &__d
+    background: url(../img/parallax3.png) top / cover no-repeat
+    top: -10rem 
+.parallax__txt-container
+  +Abs(240rem,240rem)
+  z-index: 1
+
+
+//2
+// .parallax_sub-content
+  // position: relative
+  // z-index: 2
+  // &::before
+  //   content:''
+  //   +Abs(0,0) // (t,l,z-index,b,r)
+  //   +size(100%,300rem)  //(w ,h,radius ,color,c) 
+  //   background: #f7f7f7
+  //   background: linear-gradient(180deg, rgba(140,235,255,0) 30%, rgba(255, 255, 255, 0.292) 100%)
+  //   transform: translate(0,-100%)
+  //   pointer-events: none
+ 
+    
+
+
+//e   MEDIA    -   1400px  1200px  992px 768px  576px       */  
+@media (min-width: 2000px)
+  .cover
+    background-size: cover 
+
+@media (max-width: 1700px)
+  .cover-foto
+    left: 75% 
+
+
+@media (max-width: 1500px)
+  .cover-text__descript
+    max-width: 700rem 
+    font-size: 18rem
+         
+@media (max-width:1199.98px)
+  .cover-text__descript
+      max-width: 600rem 
+      font-size: 17rem
+  .parallax__txt-container
+      left: 130rem
+  .cover-foto
+     left: 68% 
+
+@media (max-width:910.98px)
+  .cover-text__descript
+      max-width: 500rem 
+      font-size: 16rem
+
+@media (max-width:850px)     
+  .cover-foto
+    position: absolute
+    top: 140rem
+    left: 65%
+    -webkit-mask-size: 300rem
+    mask-size: 300rem
+  .author-foto 
+    top: -50rem
+    left: -0rem
+    width: 330rem
+  .cover-text__descript
+      max-width: 400rem 
+
+@media (max-width:685.98px)
+  .cover-foto
+    top: 180rem
+    left: 65%
+  .author-foto 
+    top: -50rem
+    left: -30rem
+    min-width: 330rem
+  .cover-text__descript
+      max-width: 300rem 
+
+@media (max-width:640px)
+  .parallax__txt-container
+     left: 65rem
+
+
+
+
+
+  
+    
+
+

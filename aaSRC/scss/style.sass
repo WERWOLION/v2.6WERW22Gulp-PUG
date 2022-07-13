@@ -1,0 +1,203 @@
+@import 'fonts'   //  ----- подкл шрифтов-------------
+@import "default/googl-fonts"
+// ----------END---------------- подкл шрифтов
+$font-base: 'Open Sans',Helvetica, Arial, sans-serif
+$font-ttl: 'Source Sans Pro', Helvetica, Arial,sans-serif//,200;1,300;1,400;1,600;1,700;1,900
+$c_font-base:#000  
+$c_font-ttl : #000 
+
+// - зона переменных
+$c-dBlue: rgba(42, 65, 85, 1)  // переменная  цвет тёмно синий
+$c-dBlue07: rgba(42, 65, 85, 0.7)  // переменная  цвет тёмно синий
+
+$c-violet:rgba(76, 75, 79, 1)
+$c-dGrin :rgba(36, 46, 51, 1)
+$c-dGrin05 :rgba(36, 46, 51, 0.5)
+$c-dGrin09 :rgba(36, 46, 51, 0.9)
+$c-dGrin08 :rgba(36, 46, 51, 0.8)
+$c-dGrin07 :rgba(36, 46, 51, 0.7)
+
+$c-dark: #656c6c
+$c-grey: rgba(121, 130, 136, 1)
+$c-grey08: rgba(121, 130, 136, 0.8)
+
+$c-light: #cccdca
+$c-light05: #cccdca80
+
+$c-btn-Red:rgba(251, 13, 13, 0.5)
+$c-wite:#fff
+
+$square-height: 750rem
+$square-height_titul:50vw
+$letter-spacing-titule : 1.6rem
+
+//= = = =special ----- > 
+$container-size:1500rem  
+$c-popUPjs--background:rgb(237, 247, 244, .4)
+$c-popUPjs: linear-gradient(249.78deg, #35D3FF -0.64%, #A963FB 103.6%)
+//----
+$shadow-txt:0 0 .65px $font-ttl, 0 0 .65px $font-ttl
+$c_sticky-header_background:rgba(236, 247, 243, 0.8)
+
+// ----scrollbar----
+$scrollbar-size:10rem  
+$scrollbar-height:9rem                    // 3
+$scrollbar-border-size:1rem                     // 3
+$scrollbar-border-radius:9rem                     // 3
+$c_scrollbar-background:#cccdca
+$c_scrollbar:rgba(42, 65, 85, 1)
+$border-color:rgba(42, 65, 85, 1)// input
+//♠♠♠♠♠♠♠♠♠--scrollbar-END---♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠   
+$i:inherit 
+
+
+@import "default/normalize"
+@import "default/werw-normalize"
+//---- ▼ ▼ ▼ ▼    default     ▼ ▼ ▼ ▼ ----------▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ 
+@import "default/mixin"
+@import "module/m-modulus"
+@import "module/m-hover"
+@import "default/normalize"
+@import "default/werw-normalize"
+@import "module/Mss-Mixin"
+
+// @import "default/animation.scss";
+//♠♠♠♠♠♠♠♠♠♠♠♠♠   END default  ---♠♠♠♠♠♠♠♠♠♠♠♠♠ -------  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ 
+// font-size: 16rem; - default
+
+h1
+  font-size: 62rem
+  font-family: $font-ttl
+h2
+  font-size: 37rem
+  font-family: $font-ttl
+h3
+  font-size: 30rem
+  font-family: $font-ttl
+img
+  flex-shrink:0 // object-fit: cover
+// *,*:before,*:after
+//   user-select: none
+// запрет выделения текста
+//▼ ▼ ▼ ▼    default ----------------------------------------------------------------------
+@import "module/popUPjs"
+@import "base/external-libraries/swiper_Vr741"
+
+//e--  -module area- 
+@import "base/header"
+@import "blocks/b1-cover"
+@import "blocks/b2-services"
+@import "blocks/b3-work_examples"
+@import "blocks/b4-price"
+@import "blocks/b5-contacts"
+@import "blocks/b6-technologies"
+@import "base/footer"
+
+  
+//---- Blocks
+@import "del-blocks/form-mess"
+@import "del-blocks/politics"
+
+  
+// ---- контент контейнер
+.conteiner
+  max-width: $container-size
+  margin: 0 auto
+  @media screen and (max-width:1700px)
+      max-width: 1300rem
+  @media screen and (max-width:1500px)    
+        max-width: 1200rem
+  @media screen and (max-width:1300px)
+        max-width: 95% 
+  // @media (max-width: 1130px)
+  //   padding:0 15rem
+  // @media (max-width: 575.98px)
+  //   padding:0 10rem
+
+
+
+
+
+// w  ▼ ▼ ▼ ▼    library  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼  ▼ ▼ ▼ ▼ -----------------------------------------------------------------------
+@import "default/library"
+.svg-blur
+  display: none  
+
+
+
+//▼ ▼ ▼   animation---     ▼ ▼ ▼ 
+// @import "module/animation.scss"
+//       /*e -  -JS-   .--      ▼ ▼ ▼ ▼ ▼ ▼      ▼ ▼ ▼ ▼ ▼ ▼                                                 */ 
+// @import "module/js"
+// @import "module/js-sass"
+//  /*e - -media-   1400px / 1200px/ 992px / 768px / 576px .   --   ▼ ▼ ▼ ▼ ▼ ▼       ▼ ▼ ▼ ▼ ▼ ▼                         */   
+// @media screen and (max-width:768px)
+// @media screen and (max-width:576px) 
+//  Font 0,85  - 15%
+//   h1 
+//     @include Font(39rem,50rem)//(size,h,w,col,name )}
+//   h2
+//     @include Font(34rem,51rem)//40rem,60rem
+//   h3
+//      @include Font(26rem,30rem)// 30 35
+//   h4
+//     @include Font(22rem,30rem) // 22 33
+ 
+
+
+//REVIEW        OPTIMIZE    TSC */                              
+//IDEA                          */                                
+//SEL                           */                                   
+//BL                            */
+//GR                            */  
+//EL                              
+ /* FIX     FIXME    BUG   HACK */
+ /* TODO  */
+//w        /                  
+//e        /
+
+
+//w  Вырвниватель ========================================= 
+body.--js-lock__body
+  padding-right: $scrollbar-size
+// burger
+body.--js-lock__body--burgerMenu 
+  padding-right: $scrollbar-size  
+// @media (max-width: 768px) 
+  // body.--js-lock__body--burgerMenu .burger__icon
+  //   margin-right: 10rem // 15 - $scrollbar-size - 10
+  // body.--js-lock__body.--js-lock__body--burgerMenu
+  //   padding-right: $scrollbar-size
+  // body.--js-lock__body .header.--js_sticky-header // липоке меню
+  //   .header__body
+  //     padding-right:0
+
+// =============  //w MOZILA  // = = =   = = =   = = =
+@-moz-document url-prefix()
+  body.--js-lock__body
+    padding-right: 0rem
+  // burger
+  body.--js-lock__body--burgerMenu
+      padding-right: 0     
+  
+  // @media (max-width: 768px) 
+  //   body.--js-lock__body.--js-lock__body--burgerMenu
+  //     padding-right: 0rem
+  //   .navig.--js-active__burger-menu
+  //     padding-right: 0
+  //   body.--js-lock__body--burgerMenu .burger__icon
+  //     padding-right: 0
+
+  //   body.--js-lock__body--burgerMenu .burger__ico
+  //     margin-right: 0rem
+
+//- - END- - moz-document   --  Вырвниватель 
+
+//w snipet list
+  // aft    bef    bcc
+  // med    anih   aniv
+  // link   btn   imgg
+  // img    tra    bbb
+  // ccc    fsb    sss
+  // rrr     abs   fix 
+  // fff                            

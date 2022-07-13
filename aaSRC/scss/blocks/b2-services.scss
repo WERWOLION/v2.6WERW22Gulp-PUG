@@ -1,0 +1,123 @@
+.services{
+  height: $square-height ;
+  background: rgb(159,162,162);
+  background: linear-gradient(180deg, rgba(159,162,162,1) 0%, rgba(204,205,202,1) 43%, rgba(231,231,231,1) 100%);
+	@media(max-width: 1300px) {height: $square-height - 100rem ;	}
+	@media(max-width: 547px) {height: $square-height ;	}
+
+	&-background{
+		position: relative;
+		height: 100vh;
+		width: 100%;
+		// overflow: hidden;
+	}
+  
+	&-list{
+		// list-style-type: square;
+		&__box{
+			margin-top: 120rem ;
+		}
+
+		
+		&__title{
+			padding: 100rem 0 0;;
+			font-family:$font-ttl;
+			margin: 0 0 20rem 0;
+			font-size: 30rem ;
+			letter-spacing:3rem;
+			@media(max-width: 1300px) {font-size: 28rem ;	margin-bottom: 15rem;}
+			@media(max-width: 980px) { 	margin-bottom: 13rem;}
+		}
+
+		&__element{
+			line-height: 35rem;
+			font-size: 22rem ;
+			@media(max-width: 1300px) { font-size: 20rem ;}
+			@media(max-width: 980px) { 	font-size: 18rem ;}
+			@media(max-width: 890px) { 	font-size: 17rem ;line-height: 25rem;}
+			display: flex;
+			align-items: center;
+			&::before{
+				content: '';
+				margin: 0 15rem 0 0;
+				display: inline-block;
+				@include size(12rem,12rem,3rem,$c-dGrin);
+			}
+		}
+
+
+	} // -----END  ------------------list
+} // -----------END  ----------.services
+
+//------------- anim--------
+.serv-cube {
+  opacity: 0.8;
+	position: absolute;
+	top: 80vh;
+	left: 45vw;
+	width: 10px;
+	height: 10px;
+	border: solid 1px #d7d4e4c5;
+  //border-radius: 50%;
+	transform-origin: top left;
+	transform: scale(0) rotate(0deg) translate(-50%, -50%);
+	animation: cube 12s ease-in forwards infinite;
+  z-index: 0;
+	&:nth-child(2n) {
+    opacity: 0.8;
+		border-color: rgba(255, 255, 255, 0.698);
+	}
+	&:nth-child(2) {
+    opacity: 0.8;
+		animation-delay: 2s;
+		left: 25vw;
+		top: 40vh;
+	}
+	&:nth-child(3) {
+    opacity: 0.8;
+		animation-delay: 4s;
+		left: 75vw;
+		top: 50vh;
+	}
+	&:nth-child(4) {
+    opacity: 0.8;
+		animation-delay: 6s;
+		left: 90vw;
+		top: 10vh;
+	}
+	&:nth-child(5) {
+    opacity: 0.8;
+		animation-delay: 8s;
+		left: 10vw;
+		top: 85vh;
+	}
+	&:nth-child(6) {
+    opacity: 0.8;
+		animation-delay: 10s;
+		left: 50vw;
+		top: 10vh;
+	}
+}
+
+@keyframes serv-cube{
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+//---------END-------------- anim

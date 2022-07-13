@@ -1,0 +1,17 @@
+doctype html
+html(lang='ru')
+  head  
+    meta(charset="utf-8")
+    title= "Учимся работать с шаблонизатором Pug"
+  body
+
+    include html/header   
+   
+  
+    main
+      img.img(src='@img/i-am.jpg', alt='')
+      h1 Hello My Dear Friends!
+      
+    include html/footer 
+      
+    script(src='js/app.min.js')

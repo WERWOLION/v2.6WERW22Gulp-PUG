@@ -1,0 +1,21 @@
+//w -   mixin                                                                                                     
+// /*e burger-menu  */
+@mixin  JS-burger-menu  
+    .navig.--js-active__burger-menu
+      right: -300rem
+      transition: right 0.7s ease 0s
+    body.--js-lock__body--burgerMenu
+      overflow: hidden
+      .burger__icon
+        span 
+          transform: scale(0) translate(0rem,-50%)
+        &::before 
+          bottom:50%
+          transform: rotate(45deg) translate(0,50%)
+        &:after 
+          top:50% 
+          transform: rotate(-45deg) translate(0,-50%)
+//   @include  JS-burger-menu;
+//w - - =   END   mixin    = - -                                  
+
+@include  JS-burger-menu
